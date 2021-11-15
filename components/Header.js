@@ -1,10 +1,17 @@
 import Link from 'next/link'
+import { useRouter } from "next/router"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import NavDropdown from "react-bootstrap/NavDropdown"
 import Navbar from "react-bootstrap/Navbar"
 
 const Header = () => {
+  const router = useRouter();
+
+  const getActiveClass = (pathname) => {
+    return router.pathname === pathname ? 'active' : ''
+  }
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -15,7 +22,12 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link href="/about" passHref>
-              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link
+                href="/about"
+                active={getActiveClass('/about')}
+              >
+                About
+              </Nav.Link>
             </Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
