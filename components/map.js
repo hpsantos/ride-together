@@ -22,8 +22,6 @@ export const Map = (props) => {
   }, [ref, map]);
 
   useEffect(() => {
-    console.log("Route changed to: ", route);
-
     if (map && route && route.from && route.to) {
       const directionsService = new window.google.maps.DirectionsService();
       const directionsRenderer = new window.google.maps.DirectionsRenderer();
@@ -41,8 +39,6 @@ export const Map = (props) => {
       });
     }
   }, [map, route]);
-
-  console.log("Inside map, route:", route);
 
   return <div style={{ height: "300px", width: "50%" }} ref={ref} />;
 };

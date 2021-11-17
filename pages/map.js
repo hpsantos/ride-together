@@ -12,7 +12,6 @@ function Map() {
   const calculateRoute = (event) => {
     event.preventDefault();
 
-    console.log(`Calculating route from ${from} to ${to}.`);
     setMapRoute({ from, to });
   };
 
