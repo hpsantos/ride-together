@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 
-export const Map = () => {
+export const Map = (props) => {
+  const { route } = props;
+
   const ref = useRef(null);
   const [map, setMap] = useState(null);
 
@@ -10,8 +12,8 @@ export const Map = () => {
       setMap(
         new window.google.maps.Map(ref.current, {
           center: {
-            lat: 40,
-            lng: -7,
+            lat: 40.7,
+            lng: -7.9,
           },
           zoom: 10,
         })
@@ -19,17 +21,40 @@ export const Map = () => {
     }
   }, [ref, map]);
 
-  return <div style={{ height: "500px", width: "100%" }} ref={ref} />;
+  useEffect(() => {
+    console.log("Route changed to: ", route);
+
+    if (map && route && route.from && route.to) {
+      const directionsService = new window.google.maps.DirectionsService();
+      const directionsRenderer = new window.google.maps.DirectionsRenderer();
+      directionsRenderer.setMap(map);
+
+      const gmapData = {
+        origin: route.from,
+        destination: route.to,
+        travelMode: "DRIVING",
+      };
+      directionsService.route(gmapData, function (result, status) {
+        if (status == "OK") {
+          directionsRenderer.setDirections(result);
+        }
+      });
+    }
+  }, [map, route]);
+
+  console.log("Inside map, route:", route);
+
+  return <div style={{ height: "300px", width: "50%" }} ref={ref} />;
 };
 
 const render = (status) => {
   return <h1>{status}</h1>;
 };
 
-export const MapContainer = () => {
+export const MapContainer = (props) => {
   return (
     <Wrapper apiKey={"AIzaSyBV1iRYv9bARrGvtAq3a5tb86YRs6KMI8k"} render={render}>
-      <Map />
+      <Map {...props} />
     </Wrapper>
   );
 };
