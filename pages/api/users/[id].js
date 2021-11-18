@@ -1,18 +1,22 @@
-import mongo from "mongodb";
+import mongo from "mongodb"
 
-import clientPromise from "/lib/mongodb";
+import clientPromise from "/lib/mongodb"
 
 const handler = async (req, res) => {
-  const { id } = req.query;
-  const client = await clientPromise;
-  const findParams = { $or: [{ name: id }] };
+  const { id } = req.query
+  const client = await clientPromise
+  const findParams = { $or: [{ name: id }] }
 
   try {
-    findParams.$or.push({ _id: new mongo.ObjectID(id) });
+    findParams.$or.push({ _id: new mongo.ObjectID(id) })
   } catch {}
 
-  const user = await client.db().collection("users").findOne(findParams);
-  res.json(user);
-};
+  const user = await client.db().collection("users").findOne(findParams)
+  if (user) {
+    res.json(user)
+  } else {
+    res.status(404).json({})
+  }
+}
 
-export default handler;
+export default handler

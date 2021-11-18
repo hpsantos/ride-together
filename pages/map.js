@@ -42,6 +42,10 @@ function Map() {
             <Button variant="primary" type="submit">
               Check Route
             </Button>
+
+            <Button variant="success" type="submit">
+              Save Route
+            </Button>
           </Col>
         </Row>
       </Form>
