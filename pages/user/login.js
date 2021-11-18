@@ -1,6 +1,6 @@
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap"
 
-import { LoginForm } from "/components/user/login-form";
+import { LoginForm } from "/components/user/LoginForm"
 
 function Login() {
   return (
@@ -18,7 +18,7 @@ function Login() {
         </Col>
       </Row>
     </>
-  );
+  )
 }
 
-export default Login;
+export default Login
