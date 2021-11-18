@@ -1,6 +1,6 @@
-import SSRProvider from 'react-bootstrap/SSRProvider'
-import Layout from "@components/Layout"
-import '@scss/global.scss'
+import SSRProvider from "react-bootstrap/SSRProvider"
+import Layout from "components/Layout"
+import "styles/scss/global.scss"
 
 function MyApp({ Component, pageProps }) {
   return (
