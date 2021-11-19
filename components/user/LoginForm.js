@@ -1,11 +1,21 @@
-import { useState } from "react"
+import Router from "next/router"
+import { useState, useEffect } from "react"
 import { Form, Button, Alert } from "react-bootstrap"
 
-import { fetchUser } from "/services/user"
+import { useAuth } from "context/auth"
+import { fetchUser } from "services/user"
 
 export const LoginForm = () => {
+  const { user, setUser } = useAuth()
   const [username, setUsername] = useState(() => "mquental")
   const [alert, setAlert] = useState(() => null)
+
+  useEffect(() => {
+    console.log(user)
+    if (user) {
+      return Router.push("/user/routes")
+    }
+  }, [user])
 
   const loginUser = async (e) => {
     e.preventDefault()
@@ -16,6 +26,7 @@ export const LoginForm = () => {
       setAlert({ variant: "danger", text: "Error logging in" })
     } else {
       setAlert({ variant: "success", text: "Logged in successfully" })
+      setUser(answer.data)
     }
   }
 
