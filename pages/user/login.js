@@ -1,8 +1,8 @@
 import { Row, Col, Card } from "react-bootstrap"
 
-import { LoginForm } from "/components/user/LoginForm"
+import { LoginForm } from "components/user/LoginForm"
 
-function Login() {
+export default function Login() {
   return (
     <>
       <Row
@@ -20,5 +20,3 @@ function Login() {
     </>
   )
 }
-
-export default Login

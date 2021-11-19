@@ -1,9 +1,4 @@
-const path = require('path')
-
-const addDirAlias = (config) => {
-  config.resolve.alias["@components"] = path.resolve(__dirname, "components")
-  config.resolve.alias["@scss"] = path.resolve(__dirname, "styles", "scss")
-}
+const path = require("path")
 
 module.exports = {
   reactStrictMode: true,
@@ -11,7 +6,6 @@ module.exports = {
     includePaths: [path.join(__dirname, "styles", "scss")],
   },
   webpack(config) {
-    addDirAlias(config)
-    return config;
-  }
+    return config
+  },
 }
