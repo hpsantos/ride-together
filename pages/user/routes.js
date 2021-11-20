@@ -1,4 +1,5 @@
 import { useAuth } from 'context/auth'
+import Link from 'next/link'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
@@ -43,7 +44,15 @@ export default function Routes() {
   return (
     user && (
       <>
-        <h3 className="mb-4">My Routes</h3>
+        <div className="d-flex align-items-center mb-4">
+          <h3 className="mb-0">My Routes</h3>
+
+          <Link href="/user/routes/new" passHref>
+            <Button as="a" className="ms-auto" href="/">
+              New Route
+            </Button>
+          </Link>
+        </div>
         <Table striped>
           <thead>
             <tr>
@@ -54,15 +63,18 @@ export default function Routes() {
           </thead>
 
           <tbody>
-            {isLoading &&
+            {isLoading && (
               <tr>
-                <td colSpan="3" align="center">Loading data...</td>
+                <td colSpan="3" align="center">
+                  Loading data...
+                </td>
               </tr>
-            }
-            {!isLoading && routes.length === 0 &&
+            )}
+            {!isLoading && routes.length === 0 && (
               <tr>
                 <td colSpan="3">No routes available</td>
-              </tr>}
+              </tr>
+            )}
             {routes.map((route) => (
               <tr key={route._id} valign="middle">
                 <td>{route.name}</td>
