@@ -52,7 +52,6 @@ export default function NewRoute() {
 
   const saveRoute = async () => {
     setIsCreating(true)
-    // Fix this crap after geekathon
     await createRoute(mapRoutes[0])
 
     setIsCreating(false)
