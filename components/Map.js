@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react"
-import { Wrapper } from "@googlemaps/react-wrapper"
+import { Wrapper } from '@googlemaps/react-wrapper'
+import { useEffect, useRef, useState } from 'react'
 
 export const Map = ({ route }) => {
   const ref = useRef(null)
@@ -28,22 +28,22 @@ export const Map = ({ route }) => {
       const gmapData = {
         origin: route.from,
         destination: route.to,
-        travelMode: "DRIVING",
+        travelMode: 'DRIVING',
       }
       directionsService.route(gmapData, function (result, status) {
-        if (status == "OK") {
+        if (status == 'OK') {
           directionsRenderer.setDirections(result)
         }
       })
     }
   }, [map, route])
 
-  return <div style={{ height: "300px", width: "50%" }} ref={ref} />
+  return <div style={{ height: '300px', width: '50%' }} ref={ref} />
 }
 
 export const MapContainer = (props) => {
   return (
-    <Wrapper apiKey={"AIzaSyBV1iRYv9bARrGvtAq3a5tb86YRs6KMI8k"}>
+    <Wrapper apiKey={'AIzaSyBV1iRYv9bARrGvtAq3a5tb86YRs6KMI8k'}>
       <Map {...props} />
     </Wrapper>
   )

@@ -1,6 +1,5 @@
-import mongo from "mongodb"
-
-import clientPromise from "lib/mongodb"
+import clientPromise from 'lib/mongodb'
+import mongo from 'mongodb'
 
 const handler = async (req, res) => {
   const { id } = req.query
@@ -9,9 +8,11 @@ const handler = async (req, res) => {
 
   try {
     findParams.$or.push({ _id: new mongo.ObjectID(id) })
-  } catch {}
+  } catch {
+    console.error('[MongoDB] Cannot parse to ObjectID.')
+  }
 
-  const user = await client.db().collection("users").findOne(findParams)
+  const user = await client.db().collection('users').findOne(findParams)
   if (user) {
     res.json(user)
   } else {

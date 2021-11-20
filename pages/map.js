@@ -1,11 +1,11 @@
-import { useState } from "react"
-import { Row, Col, Form, Button } from "react-bootstrap"
+import { useState } from 'react'
+import { Button, Col, Form, Row } from 'react-bootstrap'
 
-import { MapContainer } from "../components/map"
+import { MapContainer } from '../components/map'
 
 export default function Map() {
-  const [from, setFrom] = useState(() => "Viseu")
-  const [to, setTo] = useState(() => "Leiria")
+  const [from, setFrom] = useState(() => 'Viseu')
+  const [to, setTo] = useState(() => 'Leiria')
 
   const [mapRoute, setMapRoute] = useState(() => ({ from: null, to: null }))
 

@@ -1,15 +1,14 @@
-import Link from "next/link"
-import { useRouter } from "next/router"
-import { Container, Nav, Navbar } from "react-bootstrap"
-
-import { useAuth } from "context/auth"
+import { useAuth } from 'context/auth'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 
 const Header = () => {
   const router = useRouter()
   const { user, setUser } = useAuth()
 
   const getActiveClass = (pathname) => {
-    return router.pathname === pathname ? "active" : ""
+    return router.pathname === pathname ? 'active' : ''
   }
 
   return (
@@ -25,14 +24,14 @@ const Header = () => {
               <Link href="/user/routes" passHref>
                 <Nav.Link
                   href="/user/routes"
-                  active={getActiveClass("/user/routes")}
+                  active={getActiveClass('/user/routes')}
                 >
                   My Routes
                 </Nav.Link>
               </Link>
             )}
             <Link href="/about" passHref>
-              <Nav.Link href="/about" active={getActiveClass("/about")}>
+              <Nav.Link href="/about" active={getActiveClass('/about')}>
                 About
               </Nav.Link>
             </Link>
@@ -48,7 +47,7 @@ const Header = () => {
               <Nav.Link
                 onClick={() => setUser(null)}
                 className="text-danger"
-                active={getActiveClass("/logout")}
+                active={getActiveClass('/logout')}
               >
                 Sign Out
               </Nav.Link>
@@ -62,7 +61,7 @@ const Header = () => {
               <Link href="/user/login" passHref>
                 <Nav.Link
                   href="/user/login"
-                  active={getActiveClass("/user/login")}
+                  active={getActiveClass('/user/login')}
                 >
                   Login
                 </Nav.Link>
