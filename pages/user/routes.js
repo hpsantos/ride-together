@@ -5,7 +5,6 @@ import { Button, Table } from 'react-bootstrap'
 
 import { RouteModal } from '~components/RouteModal'
 import { useAuth } from '~context/auth'
-import { dummyRouteData1 } from '~lib/dummy'
 import { formatRouteTime } from '~lib/utils'
 import { fetchUserRoutes } from '~services/user'
 
@@ -13,10 +12,10 @@ export default function Routes() {
   const { user } = useAuth()
   const [routes, setRoutes] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  const [routeData, setRouteData] = useState(null)
+  const [currentRoute, setCurrentRoute] = useState(null)
 
-  const handleViewRoute = () => {
-    setRouteData([dummyRouteData1])
+  const handleViewRoute = (route) => {
+    setCurrentRoute(route)
   }
 
   useEffect(() => {
@@ -69,7 +68,7 @@ export default function Routes() {
             {isLoading && (
               <tr>
                 <td colSpan="3" align="center">
-                  Loading data...
+                  Loading routes...
                 </td>
               </tr>
             )}
@@ -83,7 +82,7 @@ export default function Routes() {
                 <td>{route.name}</td>
                 <td>{formatRouteTime(route.time.toString())}</td>
                 <td>
-                  <Button size="sm" onClick={handleViewRoute}>
+                  <Button size="sm" onClick={() => handleViewRoute(route)}>
                     View Route
                   </Button>
                 </td>
@@ -91,7 +90,12 @@ export default function Routes() {
             ))}
           </tbody>
         </Table>
-        <RouteModal onClose={() => setRouteData(null)} data={routeData} />
+        {currentRoute && (
+          <RouteModal
+            onClose={() => setCurrentRoute(null)}
+            route={currentRoute}
+          />
+        )}
       </>
     )
   )

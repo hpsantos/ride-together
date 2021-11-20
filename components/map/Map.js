@@ -30,8 +30,10 @@ export const MapContent = ({ routes }) => {
 
   return (
     <>
-      <div style={{ height: '300px', width: '50%' }} ref={ref} />
-
+      <div
+        style={{ height: '100%', width: '100%', minHeight: '400px' }}
+        ref={ref}
+      />
       <RouteDetailsModal
         onClose={() => setRouteDetails(null)}
         data={routeDetails}
