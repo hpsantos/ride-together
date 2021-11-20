@@ -9,7 +9,7 @@ const fetchRoutes = async () => {
 }
 
 const createRoute = async (params) => {
-  const response = fetch(API_URL, {
+  const response = await fetch(API_URL, {
     method: 'POST',
     body: JSON.stringify(params),
   })
