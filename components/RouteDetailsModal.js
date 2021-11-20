@@ -13,7 +13,6 @@ export const RouteDetailsModal = ({ onClose, data }) => {
 
   useEffect(() => {
     if (data) {
-      console.log(data)
       setShow(true)
     }
   }, [data])
