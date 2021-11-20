@@ -69,7 +69,7 @@ export default function NewRoute() {
             <Row className="g-2">
               <Col xs="auto">
                 <InputGroup>
-                  <InputGroup.Text id="basic-addon1">From</InputGroup.Text>
+                  <InputGroup.Text>From</InputGroup.Text>
                   <Form.Control
                     type="text"
                     placeholder="From (e.g.: Viseu)"
@@ -81,7 +81,7 @@ export default function NewRoute() {
 
               <Col xs="auto">
                 <InputGroup>
-                  <InputGroup.Text id="basic-addon1">To</InputGroup.Text>
+                  <InputGroup.Text>To</InputGroup.Text>
                   <Form.Control
                     type="text"
                     placeholder="To (e.g.: Leiria)"
@@ -104,7 +104,7 @@ export default function NewRoute() {
 
           <Col xs="auto">
             <Button className="me-2" variant="secondary" type="submit">
-              Verify
+              <i className="bi-check-lg"></i>&nbsp; Verify
             </Button>
 
             <Button
@@ -113,7 +113,7 @@ export default function NewRoute() {
               onClick={saveRoute}
               disabled={isCreating}
             >
-              Save Route
+              <i className="bi-plus-lg"></i>&nbsp; Save Route
             </Button>
           </Col>
         </Row>
