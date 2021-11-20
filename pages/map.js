@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 
-import { Map } from '../components/map'
-import { dummyRouteData1, dummyRouteData2 } from '../lib/dummy'
+import { Map } from '~components/map/Map'
+import { dummyRouteData1, dummyRouteData2 } from '~lib/dummy'
 
 export default function MapPage() {
   const [from, setFrom] = useState(() => 'Viseu')
