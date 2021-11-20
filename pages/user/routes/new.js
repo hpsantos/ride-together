@@ -1,8 +1,9 @@
-import { MapContainer } from 'components/map'
-import { useAuth } from 'context/auth'
 import { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
-import { createRoute } from 'services/routes'
+
+import { Map } from '~components/map/Map'
+import { useAuth } from '~context/auth'
+import { createRoute } from '~services/routes'
 
 export default function NewRoute() {
   const { user } = useAuth()
@@ -114,7 +115,8 @@ export default function NewRoute() {
           </Col>
         </Row>
       </Form>
-      <MapContainer routes={mapRoutes} />
+
+      <Map routes={mapRoutes} />
     </>
   )
 }
