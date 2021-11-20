@@ -1,9 +1,8 @@
-import Router from "next/router"
-import { useEffect, useState } from "react"
-import { Button, Table } from "react-bootstrap"
-
-import { useAuth } from "context/auth"
-import { fetchUserRoutes } from "services/user"
+import { useAuth } from 'context/auth'
+import Router from 'next/router'
+import { useEffect, useState } from 'react'
+import { Button, Table } from 'react-bootstrap'
+import { fetchUserRoutes } from 'services/user'
 
 export default function Routes() {
   const { user } = useAuth()
@@ -26,7 +25,7 @@ export default function Routes() {
     }
 
     if (!user) {
-      return Router.push("/user/login")
+      return Router.push('/user/login')
     }
 
     fetchRoutes(user.name)
@@ -50,21 +49,20 @@ export default function Routes() {
           </thead>
 
           <tbody>
-            {routes.length === 0 &&
+            {routes.length === 0 && (
               <tr>
                 <td colSpan="2">No routes available</td>
-              </tr>}
-            {
-              routes.map((route) => (
-                <tr key={route._id} valign="middle">
-                  <td>{route.name}</td>
-                  <td>{formatRouteTime(route.time.toString())}</td>
-                  <td>
-                    <Button size="sm">View Route</Button>
-                  </td>
-                </tr>
-              ))
-            }
+              </tr>
+            )}
+            {routes.map((route) => (
+              <tr key={route._id} valign="middle">
+                <td>{route.name}</td>
+                <td>{formatRouteTime(route.time.toString())}</td>
+                <td>
+                  <Button size="sm">View Route</Button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </>

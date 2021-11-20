@@ -1,14 +1,15 @@
-import { useState, useRef, useEffect } from "react"
-import { Wrapper } from "@googlemaps/react-wrapper"
+import { Wrapper } from '@googlemaps/react-wrapper'
+import { useEffect, useRef, useState } from 'react'
 
 import { generateRandomColor } from "lib/utils"
 
 const initRenderer = (map) => {
-  var polylineOptionsActual = new google.maps.Polyline({
+  var polylineOptionsActual = new window.google.maps.Polyline({
     strokeColor: generateRandomColor([false, false, false]),
     strokeOpacity: 0.9,
     strokeWeight: 3,
   })
+
   return new window.google.maps.DirectionsRenderer({
     map,
     preserveViewport: true,
@@ -56,12 +57,12 @@ export const Map = ({ routes }) => {
     }
   }, [ref, map, routes])
 
-  return <div style={{ height: "300px", width: "50%" }} ref={ref} />
+  return <div style={{ height: '300px', width: '50%' }} ref={ref} />
 }
 
 export const MapContainer = (props) => {
   return (
-    <Wrapper apiKey={"AIzaSyBV1iRYv9bARrGvtAq3a5tb86YRs6KMI8k"}>
+    <Wrapper apiKey={'AIzaSyBV1iRYv9bARrGvtAq3a5tb86YRs6KMI8k'}>
       <Map {...props} />
     </Wrapper>
   )
