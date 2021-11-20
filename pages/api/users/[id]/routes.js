@@ -1,12 +1,14 @@
-import mongo from "mongodb"
-
-import clientPromise from "lib/mongodb"
+import clientPromise from 'lib/mongodb'
 
 const handler = async (req, res) => {
   const { id } = req.query
   const client = await clientPromise
   const findParams = { user: id }
-  const routes = await client.db().collection("routes").find(findParams).toArray()
+  const routes = await client
+    .db()
+    .collection('routes')
+    .find(findParams)
+    .toArray()
 
   if (routes) {
     res.json(routes)

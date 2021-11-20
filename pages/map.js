@@ -1,23 +1,23 @@
-import { useState } from "react"
-import { Row, Col, Form, Button } from "react-bootstrap"
+import { useState } from 'react'
+import { Button, Col, Form, Row } from 'react-bootstrap'
 
-import { MapContainer } from "components/map"
+import { MapContainer } from '../components/map'
 
 export default function Map() {
-  const [from, setFrom] = useState(() => "Viseu")
-  const [to, setTo] = useState(() => "Leiria")
+  const [from, setFrom] = useState(() => 'Viseu')
+  const [to, setTo] = useState(() => 'Leiria')
 
   const routeData1 = {
     geocoded_waypoints: [
       {
-        geocoder_status: "OK",
-        place_id: "ChIJZ45iEdAMIg0Ro3UpInuz51Q",
-        types: ["street_address"],
+        geocoder_status: 'OK',
+        place_id: 'ChIJZ45iEdAMIg0Ro3UpInuz51Q',
+        types: ['street_address'],
       },
       {
-        geocoder_status: "OK",
-        place_id: "ChIJ7axAIGxzIg0RdTdVd4MLVBM",
-        types: ["establishment", "point_of_interest"],
+        geocoder_status: 'OK',
+        place_id: 'ChIJ7axAIGxzIg0RdTdVd4MLVBM',
+        types: ['establishment', 'point_of_interest'],
       },
     ],
     routes: [
@@ -28,30 +28,30 @@ export default function Map() {
           north: 39.75723,
           east: -8.803650000000001,
         },
-        copyrights: "Map data ©2021",
+        copyrights: 'Map data ©2021',
         legs: [
           {
-            distance: { text: "4.8 km", value: 4765 },
-            duration: { text: "9 mins", value: 554 },
+            distance: { text: '4.8 km', value: 4765 },
+            duration: { text: '9 mins', value: 554 },
             end_address:
-              "Rua São Francisco, 34lj.kriterio, Leiria, 2400-153 Leiria, Portugal",
+              'Rua São Francisco, 34lj.kriterio, Leiria, 2400-153 Leiria, Portugal',
             end_location: { lat: 39.7483536, lng: -8.804034699999999 },
-            start_address: "R. das Barrocas 102A, 2400-013 Barosa, Portugal",
+            start_address: 'R. das Barrocas 102A, 2400-013 Barosa, Portugal',
             start_location: { lat: 39.7572046, lng: -8.846376400000002 },
             steps: [
               {
-                distance: { text: "74 m", value: 74 },
-                duration: { text: "1 min", value: 10 },
+                distance: { text: '74 m', value: 74 },
+                duration: { text: '1 min', value: 10 },
                 end_location: { lat: 39.7565557, lng: -8.846489 },
                 polyline: {
-                  points: "oatqFzx~t@D?D?B?B@F@HBHBJBNDJ@F?F@B?DAD?FA",
+                  points: 'oatqFzx~t@D?D?B?B@F@HBHBJBNDJ@F?F@B?DAD?FA',
                 },
                 start_location: {
                   lat: 39.7572046,
                   lng: -8.846376400000002,
                 },
-                travel_mode: "DRIVING",
-                encoded_lat_lngs: "oatqFzx~t@D?D?B?B@F@HBHBJBNDJ@F?F@B?DAD?FA",
+                travel_mode: 'DRIVING',
+                encoded_lat_lngs: 'oatqFzx~t@D?D?B?B@F@HBHBJBNDJ@F?F@B?DAD?FA',
                 path: [
                   { lat: 39.757200000000005, lng: -8.84638 },
                   { lat: 39.75717, lng: -8.84638 },
@@ -91,24 +91,24 @@ export default function Map() {
                   { lat: 39.75656, lng: -8.846490000000001 },
                 ],
                 instructions:
-                  "Head <b>south</b> on <b>R. das Barrocas</b> toward <b>Estr. da Barosa</b>",
-                maneuver: "",
+                  'Head <b>south</b> on <b>R. das Barrocas</b> toward <b>Estr. da Barosa</b>',
+                maneuver: '',
                 start_point: { lat: 39.7572046, lng: -8.846376400000002 },
                 end_point: { lat: 39.7565557, lng: -8.846489 },
               },
               {
-                distance: { text: "0.9 km", value: 856 },
-                duration: { text: "2 mins", value: 91 },
+                distance: { text: '0.9 km', value: 856 },
+                duration: { text: '2 mins', value: 91 },
                 end_location: { lat: 39.7527885, lng: -8.8399549 },
-                maneuver: "turn-left",
+                maneuver: 'turn-left',
                 polyline: {
                   points:
-                    "o}sqFpy~t@Mg@GOEQKYCKCKCIAICMKm@Ka@Q}@GUEYEUG_@AQCO?U?S@M@YBQBOH]DIBEDGBEHEDCDADCDABADCPa@BGBGNYBGFIFIJEHELGHGBEDGPc@BGFKDGDGFCHEDADADCFAH?LAPANAPCZI\\KRIRIXOf@Yz@m@n@a@\\U^W^UBAFEJIDEBCJMZe@\\i@r@eA",
+                    'o}sqFpy~t@Mg@GOEQKYCKCKCIAICMKm@Ka@Q}@GUEYEUG_@AQCO?U?S@M@YBQBOH]DIBEDGBEHEDCDADCDABADCPa@BGBGNYBGFIFIJEHELGHGBEDGPc@BGFKDGDGFCHEDADADCFAH?LAPANAPCZI\\KRIRIXOf@Yz@m@n@a@\\U^W^UBAFEJIDEBCJMZe@\\i@r@eA',
                 },
                 start_location: { lat: 39.7565557, lng: -8.846489 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "o}sqFpy~t@Mg@GOEQKYCKCKCIAICMKm@Ka@Q}@GUEYEUG_@AQCO?U?S@M@YBQBOH]DIBEDGBEHEDCDADCDABADCPa@BGBGNYBGFIFIJEHELGHGBEDGPc@BGFKDGDGFCHEDADADCFAH?LAPANAPCZI\\KRIRIXOf@Yz@m@n@a@\\U^W^UBAFEJIDEBCJMZe@\\i@r@eA",
+                  'o}sqFpy~t@Mg@GOEQKYCKCKCIAICMKm@Ka@Q}@GUEYEUG_@AQCO?U?S@M@YBQBOH]DIBEDGBEHEDCDADCDABADCPa@BGBGNYBGFIFIJEHELGHGBEDGPc@BGFKDGDGFCHEDADADCFAH?LAPANAPCZI\\KRIRIXOf@Yz@m@n@a@\\U^W^UBAFEJIDEBCJMZe@\\i@r@eA',
                 path: [
                   { lat: 39.75656, lng: -8.846490000000001 },
                   { lat: 39.75663, lng: -8.846290000000002 },
@@ -285,23 +285,23 @@ export default function Map() {
                   { lat: 39.75305, lng: -8.840300000000001 },
                   { lat: 39.752790000000005, lng: -8.83995 },
                 ],
-                instructions: "Turn <b>left</b> onto <b>Estr. da Barosa</b>",
+                instructions: 'Turn <b>left</b> onto <b>Estr. da Barosa</b>',
                 start_point: { lat: 39.7565557, lng: -8.846489 },
                 end_point: { lat: 39.7527885, lng: -8.8399549 },
               },
               {
-                distance: { text: "0.3 km", value: 284 },
-                duration: { text: "1 min", value: 28 },
+                distance: { text: '0.3 km', value: 284 },
+                duration: { text: '1 min', value: 28 },
                 end_location: { lat: 39.75462599999999, lng: -8.837682 },
-                maneuver: "turn-left",
+                maneuver: 'turn-left',
                 polyline: {
                   points:
-                    "}esqFtp}t@KSMWKOIMCAGIKGIGMKMKMOYg@Yk@]i@?A[[CEUUUSQQOSOSQ[QU",
+                    '}esqFtp}t@KSMWKOIMCAGIKGIGMKMKMOYg@Yk@]i@?A[[CEUUUSQQOSOSQ[QU',
                 },
                 start_location: { lat: 39.7527885, lng: -8.8399549 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "}esqFtp}t@KSMWKOIMCAGIKGIGMKMKMOYg@Yk@]i@?A[[CEUUUSQQOSOSQ[QU",
+                  '}esqFtp}t@KSMWKOIMCAGIKGIGMKMKMOYg@Yk@]i@?A[[CEUUUSQQOSOSQ[QU',
                 path: [
                   { lat: 39.752790000000005, lng: -8.83995 },
                   { lat: 39.75285, lng: -8.83985 },
@@ -356,23 +356,23 @@ export default function Map() {
                   { lat: 39.754540000000006, lng: -8.83779 },
                   { lat: 39.754630000000006, lng: -8.83768 },
                 ],
-                instructions: "Turn <b>left</b> onto <b>R. do Campo</b>",
+                instructions: 'Turn <b>left</b> onto <b>R. do Campo</b>',
                 start_point: { lat: 39.7527885, lng: -8.8399549 },
                 end_point: { lat: 39.75462599999999, lng: -8.837682 },
               },
               {
-                distance: { text: "0.4 km", value: 431 },
-                duration: { text: "1 min", value: 40 },
+                distance: { text: '0.4 km', value: 431 },
+                duration: { text: '1 min', value: 40 },
                 end_location: { lat: 39.7523617, lng: -8.8336151 },
-                maneuver: "turn-right",
+                maneuver: 'turn-right',
                 polyline: {
                   points:
-                    "mqsqFnb}t@VYLQVa@LSJSVm@JWRg@@EPa@J[DI?Ab@kATi@^cADMVo@J]DGRe@HSLWTc@`@u@`@m@",
+                    'mqsqFnb}t@VYLQVa@LSJSVm@JWRg@@EPa@J[DI?Ab@kATi@^cADMVo@J]DGRe@HSLWTc@`@u@`@m@',
                 },
                 start_location: { lat: 39.75462599999999, lng: -8.837682 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "mqsqFnb}t@VYLQVa@LSJSVm@JWRg@@EPa@J[DI?Ab@kATi@^cADMVo@J]DGRe@HSLWTc@`@u@`@m@",
+                  'mqsqFnb}t@VYLQVa@LSJSVm@JWRg@@EPa@J[DI?Ab@kATi@^cADMVo@J]DGRe@HSLWTc@`@u@`@m@',
                 path: [
                   { lat: 39.754630000000006, lng: -8.83768 },
                   { lat: 39.75451, lng: -8.83755 },
@@ -431,19 +431,19 @@ export default function Map() {
                   { lat: 39.75253, lng: -8.83385 },
                   { lat: 39.75236, lng: -8.833620000000002 },
                 ],
-                instructions: "Turn <b>right</b> onto <b>R. do Lena</b>",
+                instructions: 'Turn <b>right</b> onto <b>R. do Lena</b>',
                 start_point: { lat: 39.75462599999999, lng: -8.837682 },
                 end_point: { lat: 39.7523617, lng: -8.8336151 },
               },
               {
-                distance: { text: "54 m", value: 54 },
-                duration: { text: "1 min", value: 8 },
+                distance: { text: '54 m', value: 54 },
+                duration: { text: '1 min', value: 8 },
                 end_location: { lat: 39.75271, lng: -8.833171799999999 },
-                maneuver: "turn-left",
-                polyline: { points: "gcsqFbi|t@MOCCg@s@KQ" },
+                maneuver: 'turn-left',
+                polyline: { points: 'gcsqFbi|t@MOCCg@s@KQ' },
                 start_location: { lat: 39.7523617, lng: -8.8336151 },
-                travel_mode: "DRIVING",
-                encoded_lat_lngs: "gcsqFbi|t@MOCCg@s@KQ",
+                travel_mode: 'DRIVING',
+                encoded_lat_lngs: 'gcsqFbi|t@MOCCg@s@KQ',
                 path: [
                   { lat: 39.75236, lng: -8.833620000000002 },
                   { lat: 39.752430000000004, lng: -8.833540000000001 },
@@ -458,25 +458,25 @@ export default function Map() {
                   { lat: 39.75265, lng: -8.833260000000001 },
                   { lat: 39.75271, lng: -8.83317 },
                 ],
-                instructions: "Turn <b>left</b> onto <b>R. Campos do Liz</b>",
+                instructions: 'Turn <b>left</b> onto <b>R. Campos do Liz</b>',
                 start_point: { lat: 39.7523617, lng: -8.8336151 },
                 end_point: { lat: 39.75271, lng: -8.833171799999999 },
               },
               {
-                distance: { text: "0.4 km", value: 384 },
-                duration: { text: "1 min", value: 39 },
+                distance: { text: '0.4 km', value: 384 },
+                duration: { text: '1 min', value: 39 },
                 end_location: {
                   lat: 39.75448069999999,
                   lng: -8.829680699999999,
                 },
                 polyline: {
                   points:
-                    "mesqFhf|t@QW_@i@W]ISEKCMAMAK?K@S@QL}@@S?SAI?ICGAGIMYc@CAo@}@O]Wc@MWQW]a@c@c@MIOOEEEK",
+                    'mesqFhf|t@QW_@i@W]ISEKCMAMAK?K@S@QL}@@S?SAI?ICGAGIMYc@CAo@}@O]Wc@MWQW]a@c@c@MIOOEEEK',
                 },
                 start_location: { lat: 39.75271, lng: -8.833171799999999 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "mesqFhf|t@QW_@i@W]ISEKCMAMAK?K@S@QL}@@S?SAI?ICGAGIMYc@CAo@}@O]Wc@MWQW]a@c@c@MIOOEEEK",
+                  'mesqFhf|t@QW_@i@W]ISEKCMAMAK?K@S@QL}@@S?SAI?ICGAGIMYc@CAo@}@O]Wc@MWQW]a@c@c@MIOOEEEK',
                 path: [
                   { lat: 39.75271, lng: -8.83317 },
                   { lat: 39.7528, lng: -8.83305 },
@@ -547,8 +547,8 @@ export default function Map() {
                   { lat: 39.754450000000006, lng: -8.829740000000001 },
                   { lat: 39.75448, lng: -8.829680000000002 },
                 ],
-                instructions: "Continue onto <b>R. da Cabreira</b>",
-                maneuver: "",
+                instructions: 'Continue onto <b>R. da Cabreira</b>',
+                maneuver: '',
                 start_point: { lat: 39.75271, lng: -8.833171799999999 },
                 end_point: {
                   lat: 39.75448069999999,
@@ -556,17 +556,17 @@ export default function Map() {
                 },
               },
               {
-                distance: { text: "0.2 km", value: 157 },
-                duration: { text: "1 min", value: 20 },
+                distance: { text: '0.2 km', value: 157 },
+                duration: { text: '1 min', value: 20 },
                 end_location: { lat: 39.7542479, lng: -8.8278818 },
-                maneuver: "turn-right",
-                polyline: { points: "opsqFnp{t@?OD[^oEB[BUBc@CU" },
+                maneuver: 'turn-right',
+                polyline: { points: 'opsqFnp{t@?OD[^oEB[BUBc@CU' },
                 start_location: {
                   lat: 39.75448069999999,
                   lng: -8.829680699999999,
                 },
-                travel_mode: "DRIVING",
-                encoded_lat_lngs: "opsqFnp{t@?OD[^oEB[BUBc@CU",
+                travel_mode: 'DRIVING',
+                encoded_lat_lngs: 'opsqFnp{t@?OD[^oEB[BUBc@CU',
                 path: [
                   { lat: 39.75448, lng: -8.829680000000002 },
                   { lat: 39.75448, lng: -8.829600000000001 },
@@ -587,7 +587,7 @@ export default function Map() {
                   { lat: 39.75423, lng: -8.827990000000002 },
                   { lat: 39.754250000000006, lng: -8.82788 },
                 ],
-                instructions: "Turn <b>right</b> onto <b>R. Padre Miguel</b>",
+                instructions: 'Turn <b>right</b> onto <b>R. Padre Miguel</b>',
                 start_point: {
                   lat: 39.75448069999999,
                   lng: -8.829680699999999,
@@ -595,17 +595,17 @@ export default function Map() {
                 end_point: { lat: 39.7542479, lng: -8.8278818 },
               },
               {
-                distance: { text: "0.4 km", value: 418 },
-                duration: { text: "1 min", value: 65 },
+                distance: { text: '0.4 km', value: 418 },
+                duration: { text: '1 min', value: 65 },
                 end_location: { lat: 39.7555291, lng: -8.8236574 },
                 polyline: {
                   points:
-                    "aosqFfe{t@EKCiDAECUC]Cc@AUAKCKCMEOEK?ACKCOEUAQAKGUQg@K[Me@EOEGGEGCIAQ@GACCCAACESEYEe@CS?ACg@Cq@AKEEKEMC",
+                    'aosqFfe{t@EKCiDAECUC]Cc@AUAKCKCMEOEK?ACKCOEUAQAKGUQg@K[Me@EOEGGEGCIAQ@GACCCAACESEYEe@CS?ACg@Cq@AKEEKEMC',
                 },
                 start_location: { lat: 39.7542479, lng: -8.8278818 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "aosqFfe{t@EKCiDAECUC]Cc@AUAKCKCMEOEK?ACKCOEUAQAKGUQg@K[Me@EOEGGEGCIAQ@GACCCAACESEYEe@CS?ACg@Cq@AKEEKEMC",
+                  'aosqFfe{t@EKCiDAECUC]Cc@AUAKCKCMEOEK?ACKCOEUAQAKGUQg@K[Me@EOEGGEGCIAQ@GACCCAACESEYEe@CS?ACg@Cq@AKEEKEMC',
                 path: [
                   { lat: 39.754250000000006, lng: -8.82788 },
                   { lat: 39.75428, lng: -8.827820000000001 },
@@ -698,22 +698,22 @@ export default function Map() {
                   { lat: 39.75546000000001, lng: -8.823680000000001 },
                   { lat: 39.75553, lng: -8.82366 },
                 ],
-                instructions: "Continue onto <b>R. do Jardim</b>",
-                maneuver: "",
+                instructions: 'Continue onto <b>R. do Jardim</b>',
+                maneuver: '',
                 start_point: { lat: 39.7542479, lng: -8.8278818 },
                 end_point: { lat: 39.7555291, lng: -8.8236574 },
               },
               {
-                distance: { text: "0.3 km", value: 349 },
-                duration: { text: "1 min", value: 37 },
+                distance: { text: '0.3 km', value: 349 },
+                duration: { text: '1 min', value: 37 },
                 end_location: { lat: 39.754361, lng: -8.8198669 },
-                maneuver: "turn-right",
+                maneuver: 'turn-right',
                 polyline: {
-                  points: "awsqFzjzt@pA{Fl@}CBIbAsEJ_@BQBSBE@KBQBS",
+                  points: 'awsqFzjzt@pA{Fl@}CBIbAsEJ_@BQBSBE@KBQBS',
                 },
                 start_location: { lat: 39.7555291, lng: -8.8236574 },
-                travel_mode: "DRIVING",
-                encoded_lat_lngs: "awsqFzjzt@pA{Fl@}CBIbAsEJ_@BQBSBE@KBQBS",
+                travel_mode: 'DRIVING',
+                encoded_lat_lngs: 'awsqFzjzt@pA{Fl@}CBIbAsEJ_@BQBSBE@KBQBS',
                 path: [
                   { lat: 39.75553, lng: -8.82366 },
                   { lat: 39.755120000000005, lng: -8.8224 },
@@ -742,23 +742,23 @@ export default function Map() {
                   { lat: 39.754380000000005, lng: -8.819970000000001 },
                   { lat: 39.754360000000005, lng: -8.81987 },
                 ],
-                instructions: "Turn <b>right</b> onto <b>Estr. da Estação</b>",
+                instructions: 'Turn <b>right</b> onto <b>Estr. da Estação</b>',
                 start_point: { lat: 39.7555291, lng: -8.8236574 },
                 end_point: { lat: 39.754361, lng: -8.8198669 },
               },
               {
-                distance: { text: "0.4 km", value: 426 },
-                duration: { text: "1 min", value: 38 },
+                distance: { text: '0.4 km', value: 426 },
+                duration: { text: '1 min', value: 38 },
                 end_location: { lat: 39.7530091, lng: -8.815280099999999 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "wosqFdsyt@?A@?@A@??A@??A@A?A@A?A?A@A?A?A?A?A?A?A?APa@@MDGBGl@iCVkAHYXsAJi@Rw@No@Lm@BOBKBG@IFWTgADSBQBW@M@Q?K?MAOAY",
+                    'wosqFdsyt@?A@?@A@??A@??A@A?A@A?A?A@A?A?A?A?A?A?A?APa@@MDGBGl@iCVkAHYXsAJi@Rw@No@Lm@BOBKBG@IFWTgADSBQBW@M@Q?K?MAOAY',
                 },
                 start_location: { lat: 39.754361, lng: -8.8198669 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "wosqFdsyt@?A@?@A@??A@??A@A?A@A?A?A@A?A?A?A?A?A?A?APa@@MDGBGl@iCVkAHYXsAJi@Rw@No@Lm@BOBKBG@IFWTgADSBQBW@M@Q?K?MAOAY",
+                  'wosqFdsyt@?A@?@A@??A@??A@A?A@A?A?A@A?A?A?A?A?A?A?APa@@MDGBGl@iCVkAHYXsAJi@Rw@No@Lm@BOBKBG@IFWTgADSBQBW@M@Q?K?MAOAY',
                 path: [
                   { lat: 39.754360000000005, lng: -8.81987 },
                   { lat: 39.754360000000005, lng: -8.81986 },
@@ -860,21 +860,21 @@ export default function Map() {
                   { lat: 39.75301, lng: -8.815280000000001 },
                 ],
                 instructions:
-                  "At the roundabout, take the <b>2nd</b> exit and stay on <b>Estr. da Estação</b>",
+                  'At the roundabout, take the <b>2nd</b> exit and stay on <b>Estr. da Estação</b>',
                 start_point: { lat: 39.754361, lng: -8.8198669 },
                 end_point: { lat: 39.7530091, lng: -8.815280099999999 },
               },
               {
-                distance: { text: "63 m", value: 63 },
-                duration: { text: "1 min", value: 8 },
+                distance: { text: '63 m', value: 63 },
+                duration: { text: '1 min', value: 8 },
                 end_location: { lat: 39.7530363, lng: -8.8145515 },
-                polyline: { points: "igsqFnvxt@Go@@M?UA_@@]" },
+                polyline: { points: 'igsqFnvxt@Go@@M?UA_@@]' },
                 start_location: {
                   lat: 39.7530091,
                   lng: -8.815280099999999,
                 },
-                travel_mode: "DRIVING",
-                encoded_lat_lngs: "igsqFnvxt@Go@@M?UA_@@]",
+                travel_mode: 'DRIVING',
+                encoded_lat_lngs: 'igsqFnvxt@Go@@M?UA_@@]',
                 path: [
                   { lat: 39.75301, lng: -8.815280000000001 },
                   { lat: 39.75305, lng: -8.815040000000002 },
@@ -891,24 +891,24 @@ export default function Map() {
                   { lat: 39.75305, lng: -8.8147 },
                   { lat: 39.753040000000006, lng: -8.81455 },
                 ],
-                instructions: "Continue onto <b>N1</b>",
-                maneuver: "",
+                instructions: 'Continue onto <b>N1</b>',
+                maneuver: '',
                 start_point: { lat: 39.7530091, lng: -8.815280099999999 },
                 end_point: { lat: 39.7530363, lng: -8.8145515 },
               },
               {
-                distance: { text: "0.6 km", value: 630 },
-                duration: { text: "1 min", value: 68 },
+                distance: { text: '0.6 km', value: 630 },
+                duration: { text: '1 min', value: 68 },
                 end_location: { lat: 39.7515142, lng: -8.8075101 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "ogsqF|qxt@@A@A@A@C@A@C?A@C@E@G@E@G?E?G?EAG?A?AAA?A?A?A@MLe@J[DMFOLa@Lq@BUDc@F_@PyAJiANqAJ}@XcCLeANsALqAPaBJiAHq@LkADWDUDM",
+                    'ogsqF|qxt@@A@A@A@C@A@C?A@C@E@G@E@G?E?G?EAG?A?AAA?A?A?A@MLe@J[DMFOLa@Lq@BUDc@F_@PyAJiANqAJ}@XcCLeANsALqAPaBJiAHq@LkADWDUDM',
                 },
                 start_location: { lat: 39.7530363, lng: -8.8145515 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "ogsqF|qxt@@A@A@A@C@A@C?A@C@E@G@E@G?E?G?EAG?A?AAA?A?A?A@MLe@J[DMFOLa@Lq@BUDc@F_@PyAJiANqAJ}@XcCLeANsALqAPaBJiAHq@LkADWDUDM",
+                  'ogsqF|qxt@@A@A@A@C@A@C?A@C@E@G@E@G?E?G?EAG?A?AAA?A?A?A@MLe@J[DMFOLa@Lq@BUDc@F_@PyAJiANqAJ}@XcCLeANsALqAPaBJiAHq@LkADWDUDM',
                 path: [
                   { lat: 39.753040000000006, lng: -8.81455 },
                   { lat: 39.75303, lng: -8.814540000000001 },
@@ -1010,23 +1010,23 @@ export default function Map() {
                   { lat: 39.75151, lng: -8.80751 },
                 ],
                 instructions:
-                  "At <b>Rotunda da Almoinha Grande</b>, take the <b>2nd</b> exit onto <b>Av. 22 de Maio</b>",
+                  'At <b>Rotunda da Almoinha Grande</b>, take the <b>2nd</b> exit onto <b>Av. 22 de Maio</b>',
                 start_point: { lat: 39.7530363, lng: -8.8145515 },
                 end_point: { lat: 39.7515142, lng: -8.8075101 },
               },
               {
-                distance: { text: "0.3 km", value: 340 },
-                duration: { text: "1 min", value: 44 },
+                distance: { text: '0.3 km', value: 340 },
+                duration: { text: '1 min', value: 44 },
                 end_location: { lat: 39.7507733, lng: -8.8037355 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "}}rqF|ewt@DGDG@GBG@K?E@CAE?IAA?ACCAAA?BY@YBYFs@P_B^mDJ_AVyBBQBOBIBIDMJS",
+                    '}}rqF|ewt@DGDG@GBG@K?E@CAE?IAA?ACCAAA?BY@YBYFs@P_B^mDJ_AVyBBQBOBIBIDMJS',
                 },
                 start_location: { lat: 39.7515142, lng: -8.8075101 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "}}rqF|ewt@DGDG@GBG@K?E@CAE?IAA?ACCAAA?BY@YBYFs@P_B^mDJ_AVyBBQBOBIBIDMJS",
+                  '}}rqF|ewt@DGDG@GBG@K?E@CAE?IAA?ACCAAA?BY@YBYFs@P_B^mDJ_AVyBBQBOBIBIDMJS',
                 path: [
                   { lat: 39.75151, lng: -8.80751 },
                   { lat: 39.75148, lng: -8.80747 },
@@ -1090,23 +1090,23 @@ export default function Map() {
                   { lat: 39.75077, lng: -8.803740000000001 },
                 ],
                 instructions:
-                  "At the roundabout, continue straight onto <b>Av. Eng. Adelino Amaro da Costa</b>",
+                  'At the roundabout, continue straight onto <b>Av. Eng. Adelino Amaro da Costa</b>',
                 start_point: { lat: 39.7515142, lng: -8.8075101 },
                 end_point: { lat: 39.7507733, lng: -8.8037355 },
               },
               {
-                distance: { text: "0.2 km", value: 188 },
-                duration: { text: "1 min", value: 25 },
+                distance: { text: '0.2 km', value: 188 },
+                duration: { text: '1 min', value: 25 },
                 end_location: { lat: 39.7491847, lng: -8.804117399999999 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "iyrqFjnvt@DAB?BABABABCBABCn@B^JLDNDVHD@h@Fd@F`@BHFFFDDDJ",
+                    'iyrqFjnvt@DAB?BABABABCBABCn@B^JLDNDVHD@h@Fd@F`@BHFFFDDDJ',
                 },
                 start_location: { lat: 39.7507733, lng: -8.8037355 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "iyrqFjnvt@DAB?BABABABCBABCn@B^JLDNDVHD@h@Fd@F`@BHFFFDDDJ",
+                  'iyrqFjnvt@DAB?BABABABCBABCn@B^JLDNDVHD@h@Fd@F`@BHFFFDDDJ',
                 path: [
                   { lat: 39.75077, lng: -8.803740000000001 },
                   { lat: 39.75074, lng: -8.80373 },
@@ -1156,26 +1156,26 @@ export default function Map() {
                   { lat: 39.74918, lng: -8.804120000000001 },
                 ],
                 instructions:
-                  "At the roundabout, take the <b>1st</b> exit onto <b>Av. Dom João III</b>",
+                  'At the roundabout, take the <b>1st</b> exit onto <b>Av. Dom João III</b>',
                 start_point: { lat: 39.7507733, lng: -8.8037355 },
                 end_point: { lat: 39.7491847, lng: -8.804117399999999 },
               },
               {
-                distance: { text: "0.1 km", value: 111 },
-                duration: { text: "1 min", value: 33 },
+                distance: { text: '0.1 km', value: 111 },
+                duration: { text: '1 min', value: 33 },
                 end_location: { lat: 39.7483536, lng: -8.804034699999999 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "korqFvpvt@@R?B@B@B@B@@@@BBB@@A\\KDCXMVIRMFAFCDADAB?B@@?",
+                    'korqFvpvt@@R?B@B@B@B@@@@BBB@@A\\KDCXMVIRMFAFCDADAB?B@@?',
                 },
                 start_location: {
                   lat: 39.7491847,
                   lng: -8.804117399999999,
                 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "korqFvpvt@@R?B@B@B@B@@@@BBB@@A\\KDCXMVIRMFAFCDADAB?B@@?",
+                  'korqFvpvt@@R?B@B@B@B@@@@BBB@@A\\KDCXMVIRMFAFCDADAB?B@@?',
                 path: [
                   { lat: 39.74918, lng: -8.804120000000001 },
                   { lat: 39.74917000000001, lng: -8.80422 },
@@ -1238,8 +1238,8 @@ export default function Map() {
           },
         ],
         overview_polyline:
-          "oatqFzx~t@R@f@Lj@HVCg@cBMk@m@{C[eBEa@?i@JiANg@HMXQTKh@kAJQROVMLMb@_AJOPIXIx@El@Mp@Ul@YbBgAlCeB\\WNQx@oAr@eAKSYg@MOSQWS[[qA_CkAkAa@e@a@o@QUVYd@s@Xg@b@eAr@kBhCaHp@yAv@yA`@m@MOk@w@]i@w@gAO_@Gs@RwBEo@KU]e@_A{Ae@{@o@y@q@m@UUEK?Od@kFFq@Bc@CUEKCiDE[GaAK{@Oi@McAs@_CKWOI[?KEEEKm@McBE}@QKMCpA{Fp@gDvAyGLw@DEFO?I?APa@@MHOdAuEbAoEd@yBLi@Z{AFi@By@Ci@E}@Au@B_@FIDOD[C]@Qf@_BZsAHy@t@uGbA{It@oHRcBJc@JODO@[EQCADs@|@{Ij@{EXu@PENKn@B^J\\JfARfAJPNJP@VFLJDtAg@h@UN?",
-        summary: "Estr. da Barosa",
+          'oatqFzx~t@R@f@Lj@HVCg@cBMk@m@{C[eBEa@?i@JiANg@HMXQTKh@kAJQROVMLMb@_AJOPIXIx@El@Mp@Ul@YbBgAlCeB\\WNQx@oAr@eAKSYg@MOSQWS[[qA_CkAkAa@e@a@o@QUVYd@s@Xg@b@eAr@kBhCaHp@yAv@yA`@m@MOk@w@]i@w@gAO_@Gs@RwBEo@KU]e@_A{Ae@{@o@y@q@m@UUEK?Od@kFFq@Bc@CUEKCiDE[GaAK{@Oi@McAs@_CKWOI[?KEEEKm@McBE}@QKMCpA{Fp@gDvAyGLw@DEFO?I?APa@@MHOdAuEbAoEd@yBLi@Z{AFi@By@Ci@E}@Au@B_@FIDOD[C]@Qf@_BZsAHy@t@uGbA{It@oHRcBJc@JODO@[EQCADs@|@{Ij@{EXu@PENKn@B^J\\JfARfAJPNJP@VFLJDtAg@h@UN?',
+        summary: 'Estr. da Barosa',
         warnings: [],
         waypoint_order: [],
         overview_path: [
@@ -1399,25 +1399,25 @@ export default function Map() {
         ],
       },
     ],
-    status: "OK",
+    status: 'OK',
     request: {
       origin: { location: { lat: 39.7572184, lng: -8.8461259 } },
       destination: { location: { lat: 39.7483351, lng: -8.8039942 } },
-      travelMode: "DRIVING",
+      travelMode: 'DRIVING',
     },
   }
 
   const routeData2 = {
     geocoded_waypoints: [
       {
-        geocoder_status: "OK",
-        place_id: "ChIJN-4F5bFzIg0RFkM25HuF5iU",
-        types: ["establishment", "point_of_interest", "store"],
+        geocoder_status: 'OK',
+        place_id: 'ChIJN-4F5bFzIg0RFkM25HuF5iU',
+        types: ['establishment', 'point_of_interest', 'store'],
       },
       {
-        geocoder_status: "OK",
-        place_id: "ChIJpc0-65BzIg0RYCBjiov8F14",
-        types: ["establishment", "point_of_interest"],
+        geocoder_status: 'OK',
+        place_id: 'ChIJpc0-65BzIg0RYCBjiov8F14',
+        types: ['establishment', 'point_of_interest'],
       },
     ],
     routes: [
@@ -1428,24 +1428,24 @@ export default function Map() {
           north: 39.76778,
           east: -8.7787,
         },
-        copyrights: "Map data ©2021",
+        copyrights: 'Map data ©2021',
         legs: [
           {
             distance: {
-              text: "4.0 km",
+              text: '4.0 km',
               value: 4010,
             },
             duration: {
-              text: "8 mins",
+              text: '8 mins',
               value: 454,
             },
             end_address:
-              "Edifício Moagem, R. Camilo Korrodi 62, 2400-111 Leiria, Portugal",
+              'Edifício Moagem, R. Camilo Korrodi 62, 2400-111 Leiria, Portugal',
             end_location: {
               lat: 39.74851,
               lng: -8.8028627,
             },
-            start_address: "R. Outeiro do Pomar, 2415-695 Leiria, Portugal",
+            start_address: 'R. Outeiro do Pomar, 2415-695 Leiria, Portugal',
             start_location: {
               lat: 39.7677848,
               lng: -8.779408000000002,
@@ -1453,11 +1453,11 @@ export default function Map() {
             steps: [
               {
                 distance: {
-                  text: "0.1 km",
+                  text: '0.1 km',
                   value: 127,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 12,
                 },
                 end_location: {
@@ -1465,14 +1465,14 @@ export default function Map() {
                   lng: -8.778704,
                 },
                 polyline: {
-                  points: "scvqFhvqt@JI`@Yx@i@~A_A",
+                  points: 'scvqFhvqt@JI`@Yx@i@~A_A',
                 },
                 start_location: {
                   lat: 39.7677848,
                   lng: -8.779408000000002,
                 },
-                travel_mode: "DRIVING",
-                encoded_lat_lngs: "scvqFhvqt@JI`@Yx@i@~A_A",
+                travel_mode: 'DRIVING',
+                encoded_lat_lngs: 'scvqFhvqt@JI`@Yx@i@~A_A',
                 path: [
                   {
                     lat: 39.76778,
@@ -1518,8 +1518,8 @@ export default function Map() {
                   },
                 ],
                 instructions:
-                  "Head <b>southeast</b> on <b>R. Outeiro do Pomar</b>",
-                maneuver: "",
+                  'Head <b>southeast</b> on <b>R. Outeiro do Pomar</b>',
+                maneuver: '',
                 start_point: {
                   lat: 39.7677848,
                   lng: -8.779408000000002,
@@ -1531,29 +1531,29 @@ export default function Map() {
               },
               {
                 distance: {
-                  text: "0.3 km",
+                  text: '0.3 km',
                   value: 341,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 26,
                 },
                 end_location: {
                   lat: 39.7646857,
                   lng: -8.781348,
                 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "k}uqFzqqt@LLHBLFLBR?@?l@FJDFDDDDFLPhBrD@BHNLVP^JXDJ~@dCFHJH",
+                    'k}uqFzqqt@LLHBLFLBR?@?l@FJDFDDDDFLPhBrD@BHNLVP^JXDJ~@dCFHJH',
                 },
                 start_location: {
                   lat: 39.76678039999999,
                   lng: -8.778704,
                 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "k}uqFzqqt@LLHBLFLBR?@?l@FJDFDDDDFLPhBrD@BHNLVP^JXDJ~@dCFHJH",
+                  'k}uqFzqqt@LLHBLFLBR?@?l@FJDFDDDDFLPhBrD@BHNLVP^JXDJ~@dCFHJH',
                 path: [
                   {
                     lat: 39.766780000000004,
@@ -1743,7 +1743,7 @@ export default function Map() {
                   },
                 ],
                 instructions:
-                  "At the roundabout, take the <b>1st</b> exit onto the <b>IC2</b> ramp to <b>A19</b>/<wbr/><b>Lisboa</b>/<wbr/><b>Leiria</b>/<wbr/><b>A8</b>/<wbr/><b>M.nha Grande</b>",
+                  'At the roundabout, take the <b>1st</b> exit onto the <b>IC2</b> ramp to <b>A19</b>/<wbr/><b>Lisboa</b>/<wbr/><b>Leiria</b>/<wbr/><b>A8</b>/<wbr/><b>M.nha Grande</b>',
                 start_point: {
                   lat: 39.76678039999999,
                   lng: -8.778704,
@@ -1755,27 +1755,27 @@ export default function Map() {
               },
               {
                 distance: {
-                  text: "0.1 km",
+                  text: '0.1 km',
                   value: 142,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 11,
                 },
                 end_location: {
                   lat: 39.7640475,
                   lng: -8.782783499999999,
                 },
-                maneuver: "merge",
+                maneuver: 'merge',
                 polyline: {
-                  points: "ipuqFlbrt@Vt@~@fCNj@HXDLFJ",
+                  points: 'ipuqFlbrt@Vt@~@fCNj@HXDLFJ',
                 },
                 start_location: {
                   lat: 39.7646857,
                   lng: -8.781348,
                 },
-                travel_mode: "DRIVING",
-                encoded_lat_lngs: "ipuqFlbrt@Vt@~@fCNj@HXDLFJ",
+                travel_mode: 'DRIVING',
+                encoded_lat_lngs: 'ipuqFlbrt@Vt@~@fCNj@HXDLFJ',
                 path: [
                   {
                     lat: 39.76469,
@@ -1836,7 +1836,7 @@ export default function Map() {
                     lng: -8.78278,
                   },
                 ],
-                instructions: "Merge onto <b>IC2</b>",
+                instructions: 'Merge onto <b>IC2</b>',
                 start_point: {
                   lat: 39.7646857,
                   lng: -8.781348,
@@ -1848,29 +1848,29 @@ export default function Map() {
               },
               {
                 distance: {
-                  text: "1.0 km",
+                  text: '1.0 km',
                   value: 1000,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 88,
                 },
                 end_location: {
                   lat: 39.7564368,
                   lng: -8.7877446,
                 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "iluqFjkrt@?@?BAB?B?D?B?B@B?B@B@B@B@B@@@BB@@@B@@@@?@?@@B?B?@?B?BA@?BA@ABA@A?A@A@C@C@A@C@C?ARMHGHAHAN?P@hBPv@F\\@rB^VJNFh@X^VNL\\\\RPZ\\ZZBBVV\\X\\ZFFl@f@z@x@`@\\\\XLJHH`Ax@VTFFTPRPtAjAVPVTJHf@^NLrAhA`Av@d@f@",
+                    'iluqFjkrt@?@?BAB?B?D?B?B@B?B@B@B@B@B@@@BB@@@B@@@@?@?@@B?B?@?B?BA@?BA@ABA@A?A@A@C@C@A@C@C?ARMHGHAHAN?P@hBPv@F\\@rB^VJNFh@X^VNL\\\\RPZ\\ZZBBVV\\X\\ZFFl@f@z@x@`@\\\\XLJHH`Ax@VTFFTPRPtAjAVPVTJHf@^NLrAhA`Av@d@f@',
                 },
                 start_location: {
                   lat: 39.7640475,
                   lng: -8.782783499999999,
                 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "iluqFjkrt@?@?BAB?B?D?B?B@B?B@B@B@B@B@@@BB@@@B@@@@?@?@@B?B?@?B?BA@?BA@ABA@A?A@A@C@C@A@C@C?ARMHGHAHAN?P@hBPv@F\\@rB^VJNFh@X^VNL\\\\RPZ\\ZZBBVV\\X\\ZFFl@f@z@x@`@\\\\XLJHH`Ax@VTFFTPRPtAjAVPVTJHf@^NLrAhA`Av@d@f@",
+                  'iluqFjkrt@?@?BAB?B?D?B?B@B?B@B@B@B@B@@@BB@@@B@@@@?@?@@B?B?@?B?BA@?BA@ABA@A?A@A@C@C@A@C@C?ARMHGHAHAN?P@hBPv@F\\@rB^VJNFh@X^VNL\\\\RPZ\\ZZBBVV\\X\\ZFFl@f@z@x@`@\\\\XLJHH`Ax@VTFFTPRPtAjAVPVTJHf@^NLrAhA`Av@d@f@',
                 path: [
                   {
                     lat: 39.764050000000005,
@@ -2556,7 +2556,7 @@ export default function Map() {
                   },
                 ],
                 instructions:
-                  "At the roundabout, take the <b>2nd</b> exit onto <b>R. Paulo VI</b>",
+                  'At the roundabout, take the <b>2nd</b> exit onto <b>R. Paulo VI</b>',
                 start_point: {
                   lat: 39.7640475,
                   lng: -8.782783499999999,
@@ -2568,29 +2568,29 @@ export default function Map() {
               },
               {
                 distance: {
-                  text: "0.5 km",
+                  text: '0.5 km',
                   value: 453,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 61,
                 },
                 end_location: {
                   lat: 39.7586608,
                   lng: -8.7921665,
                 },
-                maneuver: "turn-right",
+                maneuver: 'turn-right',
                 polyline: {
                   points:
-                    "w|sqFjjst@]v@m@zAQd@GRS\\[b@Y`@O^Ud@o@nBYz@IT[~@Y|@Y|@Wp@IPENMRKV",
+                    'w|sqFjjst@]v@m@zAQd@GRS\\[b@Y`@O^Ud@o@nBYz@IT[~@Y|@Y|@Wp@IPENMRKV',
                 },
                 start_location: {
                   lat: 39.7564368,
                   lng: -8.7877446,
                 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "w|sqFjjst@]v@m@zAQd@GRS\\[b@Y`@O^Ud@o@nBYz@IT[~@Y|@Y|@Wp@IPENMRKV",
+                  'w|sqFjjst@]v@m@zAQd@GRS\\[b@Y`@O^Ud@o@nBYz@IT[~@Y|@Y|@Wp@IPENMRKV',
                 path: [
                   {
                     lat: 39.756440000000005,
@@ -2763,7 +2763,7 @@ export default function Map() {
                     lng: -8.79217,
                   },
                 ],
-                instructions: "Turn <b>right</b> onto <b>R. da Escola</b>",
+                instructions: 'Turn <b>right</b> onto <b>R. da Escola</b>',
                 start_point: {
                   lat: 39.7564368,
                   lng: -8.7877446,
@@ -2775,29 +2775,29 @@ export default function Map() {
               },
               {
                 distance: {
-                  text: "1.1 km",
+                  text: '1.1 km',
                   value: 1094,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 86,
                 },
                 end_location: {
                   lat: 39.7531222,
                   lng: -8.8010874,
                 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "sjtqF`ftt@A?AAA?A?A?A@A?A?A@A?A@A?A@?@A@A@?@A@?@A@?@?@A@?B?@?@?@?B?@?@?@?@@@?@?@@@?@@@?@@@@@@??@@@@?@@@?@@@?@?@?@?@?@?@?@A@?@A@?@AZVZZ`@`@p@n@`A`A~@`A^^^\\t@r@t@r@pAvAz@v@tBxBz@x@tAvAl@j@v@v@RRLNLP^t@b@pAXdANp@F^Hl@Dx@?@@t@Av@An@Cx@E`@G`@CFEPCJ?@",
+                    'sjtqF`ftt@A?AAA?A?A?A@A?A?A@A?A@A?A@?@A@A@?@A@?@A@?@?@A@?B?@?@?@?B?@?@?@?@@@?@?@@@?@@@?@@@@@@??@@@@?@@@?@@@?@?@?@?@?@?@?@A@?@A@?@AZVZZ`@`@p@n@`A`A~@`A^^^\\t@r@t@r@pAvAz@v@tBxBz@x@tAvAl@j@v@v@RRLNLP^t@b@pAXdANp@F^Hl@Dx@?@@t@Av@An@Cx@E`@G`@CFEPCJ?@',
                 },
                 start_location: {
                   lat: 39.7586608,
                   lng: -8.7921665,
                 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "sjtqF`ftt@A?AAA?A?A?A@A?A?A@A?A@A?A@?@A@A@?@A@?@A@?@?@A@?B?@?@?@?B?@?@?@?@@@?@?@@@?@@@?@@@@@@??@@@@?@@@?@@@?@?@?@?@?@?@?@A@?@A@?@AZVZZ`@`@p@n@`A`A~@`A^^^\\t@r@t@r@pAvAz@v@tBxBz@x@tAvAl@j@v@v@RRLNLP^t@b@pAXdANp@F^Hl@Dx@?@@t@Av@An@Cx@E`@G`@CFEPCJ?@",
+                  'sjtqF`ftt@A?AAA?A?A?A@A?A?A@A?A@A?A@?@A@A@?@A@?@A@?@?@A@?B?@?@?@?B?@?@?@?@@@?@?@@@?@@@?@@@@@@??@@@@?@@@?@@@?@?@?@?@?@?@?@A@?@A@?@AZVZZ`@`@p@n@`A`A~@`A^^^\\t@r@t@r@pAvAz@v@tBxBz@x@tAvAl@j@v@v@RRLNLP^t@b@pAXdANp@F^Hl@Dx@?@@t@Av@An@Cx@E`@G`@CFEPCJ?@',
                 path: [
                   {
                     lat: 39.758660000000006,
@@ -3595,7 +3595,7 @@ export default function Map() {
                   },
                 ],
                 instructions:
-                  "At the roundabout, take the <b>4th</b> exit onto <b>Av. Francisco Sá Carneiro</b>",
+                  'At the roundabout, take the <b>4th</b> exit onto <b>Av. Francisco Sá Carneiro</b>',
                 start_point: {
                   lat: 39.7586608,
                   lng: -8.7921665,
@@ -3607,29 +3607,29 @@ export default function Map() {
               },
               {
                 distance: {
-                  text: "0.4 km",
+                  text: '0.4 km',
                   value: 363,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 42,
                 },
                 end_location: {
                   lat: 39.750988,
                   lng: -8.8034403,
                 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "_hsqFx}ut@C@A?CBCDABAB?B?D?FDJDJDP@F@J@H?NALCPET?FAD@FBD@DDB@?LBdAd@\\PTLx@b@VJd@V|Ap@NHJHFDJJHFHH",
+                    '_hsqFx}ut@C@A?CBCDABAB?B?D?FDJDJDP@F@J@H?NALCPET?FAD@FBD@DDB@?LBdAd@\\PTLx@b@VJd@V|Ap@NHJHFDJJHFHH',
                 },
                 start_location: {
                   lat: 39.7531222,
                   lng: -8.8010874,
                 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "_hsqFx}ut@C@A?CBCDABAB?B?D?FDJDJDP@F@J@H?NALCPET?FAD@FBD@DDB@?LBdAd@\\PTLx@b@VJd@V|Ap@NHJHFDJJHFHH",
+                  '_hsqFx}ut@C@A?CBCDABAB?B?D?FDJDJDP@F@J@H?NALCPET?FAD@FBD@DDB@?LBdAd@\\PTLx@b@VJd@V|Ap@NHJHFDJJHFHH',
                 path: [
                   {
                     lat: 39.75312,
@@ -3963,7 +3963,7 @@ export default function Map() {
                   },
                 ],
                 instructions:
-                  "At the roundabout, take the <b>3rd</b> exit and stay on <b>Av. Francisco Sá Carneiro</b>",
+                  'At the roundabout, take the <b>3rd</b> exit and stay on <b>Av. Francisco Sá Carneiro</b>',
                 start_point: {
                   lat: 39.7531222,
                   lng: -8.8010874,
@@ -3975,29 +3975,29 @@ export default function Map() {
               },
               {
                 distance: {
-                  text: "0.2 km",
+                  text: '0.2 km',
                   value: 226,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 30,
                 },
                 end_location: {
                   lat: 39.7491847,
                   lng: -8.804117399999999,
                 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "uzrqFnlvt@?D@B?B?D@B@B@B@BBDBBBBB@BBB?B@D@DAB?BABABABCBABCn@B^JLDNDVHD@h@Fd@F`@BHFFFDDDJ",
+                    'uzrqFnlvt@?D@B?B?D@B@B@B@BBDBBBBB@BBB?B@D@DAB?BABABABCBABCn@B^JLDNDVHD@h@Fd@F`@BHFFFDDDJ',
                 },
                 start_location: {
                   lat: 39.750988,
                   lng: -8.8034403,
                 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "uzrqFnlvt@?D@B?B?D@B@B@B@BBDBBBBB@BBB?B@D@DAB?BABABABCBABCn@B^JLDNDVHD@h@Fd@F`@BHFFFDDDJ",
+                  'uzrqFnlvt@?D@B?B?D@B@B@B@BBDBBBBB@BBB?B@D@DAB?BABABABCBABCn@B^JLDNDVHD@h@Fd@F`@BHFFFDDDJ',
                 path: [
                   {
                     lat: 39.75099,
@@ -4307,7 +4307,7 @@ export default function Map() {
                   },
                 ],
                 instructions:
-                  "At the roundabout, take the <b>2nd</b> exit onto <b>Av. Dom João III</b>",
+                  'At the roundabout, take the <b>2nd</b> exit onto <b>Av. Dom João III</b>',
                 start_point: {
                   lat: 39.750988,
                   lng: -8.8034403,
@@ -4319,29 +4319,29 @@ export default function Map() {
               },
               {
                 distance: {
-                  text: "0.2 km",
+                  text: '0.2 km',
                   value: 203,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 66,
                 },
                 end_location: {
                   lat: 39.7490603,
                   lng: -8.8028947,
                 },
-                maneuver: "roundabout-right",
+                maneuver: 'roundabout-right',
                 polyline: {
                   points:
-                    "korqFvpvt@@R?B@B@B@B@@@@BBB@@A\\KDCXM@O?KAGAEAA?AECm@@?a@AY?}@AyA",
+                    'korqFvpvt@@R?B@B@B@B@@@@BBB@@A\\KDCXM@O?KAGAEAA?AECm@@?a@AY?}@AyA',
                 },
                 start_location: {
                   lat: 39.7491847,
                   lng: -8.804117399999999,
                 },
-                travel_mode: "DRIVING",
+                travel_mode: 'DRIVING',
                 encoded_lat_lngs:
-                  "korqFvpvt@@R?B@B@B@B@@@@BBB@@A\\KDCXM@O?KAGAEAA?AECm@@?a@AY?}@AyA",
+                  'korqFvpvt@@R?B@B@B@B@@@@BBB@@A\\KDCXM@O?KAGAEAA?AECm@@?a@AY?}@AyA',
                 path: [
                   {
                     lat: 39.74918,
@@ -4555,7 +4555,7 @@ export default function Map() {
                   },
                 ],
                 instructions:
-                  "At the roundabout, take the <b>4th</b> exit onto <b>R. da Europa</b>",
+                  'At the roundabout, take the <b>4th</b> exit onto <b>R. da Europa</b>',
                 start_point: {
                   lat: 39.7491847,
                   lng: -8.804117399999999,
@@ -4567,11 +4567,11 @@ export default function Map() {
               },
               {
                 distance: {
-                  text: "61 m",
+                  text: '61 m',
                   value: 61,
                 },
                 duration: {
-                  text: "1 min",
+                  text: '1 min',
                   value: 32,
                 },
                 end_location: {
@@ -4579,14 +4579,14 @@ export default function Map() {
                   lng: -8.8028627,
                 },
                 polyline: {
-                  points: "snrqF`ivt@lBE",
+                  points: 'snrqF`ivt@lBE',
                 },
                 start_location: {
                   lat: 39.7490603,
                   lng: -8.8028947,
                 },
-                travel_mode: "DRIVING",
-                encoded_lat_lngs: "snrqF`ivt@lBE",
+                travel_mode: 'DRIVING',
+                encoded_lat_lngs: 'snrqF`ivt@lBE',
                 path: [
                   {
                     lat: 39.74906,
@@ -4609,7 +4609,7 @@ export default function Map() {
                 ],
                 instructions:
                   '<b>R. da Europa</b> turns <b>right</b> and becomes <b>R. Camilo Korrodi</b><div style="font-size:0.9em">Destination will be on the right</div>',
-                maneuver: "",
+                maneuver: '',
                 start_point: {
                   lat: 39.7490603,
                   lng: -8.8028947,
@@ -4626,8 +4626,8 @@ export default function Map() {
           },
         ],
         overview_polyline:
-          "scvqFhvqt@l@c@xCiBVPZJT?l@FJDLJRXbC~EbBjERRvA|DXdALXAL@PDNHJTFJAJGJW\\URC`@@`DX\\@rB^f@RhAp@l@j@nAnArAlAjGpFzE~DlEnDd@f@]v@_A`C[p@u@dAe@dAiAjDyApEa@bASb@MVCAE@KBINAL@PHLJFLAFCZV|@|@rErEtApAfCjCbIbIfCfCl@fA|@vCVpANfBA~CIzAKh@I\\CBIHCPPp@Dl@K|@?LDJFBLBdAd@r@^pAn@bChAZRf@b@@RFNNNPFPENKn@B^J\\JfARfAJPNJP@VFLJDb@OXM@OASCGEEm@@?a@AwAAyAlBE",
-        summary: "Av. Francisco Sá Carneiro",
+          'scvqFhvqt@l@c@xCiBVPZJT?l@FJDLJRXbC~EbBjERRvA|DXdALXAL@PDNHJTFJAJGJW\\URC`@@`DX\\@rB^f@RhAp@l@j@nAnArAlAjGpFzE~DlEnDd@f@]v@_A`C[p@u@dAe@dAiAjDyApEa@bASb@MVCAE@KBINAL@PHLJFLAFCZV|@|@rErEtApAfCjCbIbIfCfCl@fA|@vCVpANfBA~CIzAKh@I\\CBIHCPPp@Dl@K|@?LDJFBLBdAd@r@^pAn@bChAZRf@b@@RFNNNPFPENKn@B^J\\JfARfAJPNJP@VFLJDb@OXM@OASCGEEm@@?a@AwAAyAlBE',
+        summary: 'Av. Francisco Sá Carneiro',
         warnings: [],
         waypoint_order: [],
         overview_path: [
@@ -5102,15 +5102,15 @@ export default function Map() {
         ],
       },
     ],
-    status: "OK",
+    status: 'OK',
     request: {
       origin: {
-        query: "decathlon leiria",
+        query: 'decathlon leiria',
       },
       destination: {
-        query: "xgeeks leiria",
+        query: 'xgeeks leiria',
       },
-      travelMode: "DRIVING",
+      travelMode: 'DRIVING',
     },
   }
 
@@ -5124,7 +5124,7 @@ export default function Map() {
     event.preventDefault()
 
     if (!from || !to) {
-      alert("Please provide source & destination.")
+      alert('Please provide source & destination.')
     }
 
     const directionsService = new window.google.maps.DirectionsService()
@@ -5132,11 +5132,11 @@ export default function Map() {
     const gmapData = {
       origin: from,
       destination: to,
-      travelMode: "DRIVING",
+      travelMode: 'DRIVING',
     }
 
     directionsService.route(gmapData, function (result, status) {
-      if (status == "OK") {
+      if (status == 'OK') {
         setMapRoutes([...mapRoutes, result])
       }
     })
