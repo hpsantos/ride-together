@@ -5,7 +5,7 @@ export default function About() {
       <button
         type="button"
         className="btn btn-primary"
-        onClick={() => alert("Button clicked")}
+        onClick={() => alert('Button clicked')}
       >
         Click Me
       </button>

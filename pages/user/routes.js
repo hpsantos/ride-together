@@ -1,9 +1,8 @@
-import Router from "next/router"
-import { useEffect, useState } from "react"
-import { Button, Table } from "react-bootstrap"
-
-import { useAuth } from "context/auth"
-import { fetchUserRoutes } from "services/user"
+import { useAuth } from 'context/auth'
+import Router from 'next/router'
+import { useEffect, useState } from 'react'
+import { Button, Table } from 'react-bootstrap'
+import { fetchUserRoutes } from 'services/user'
 
 export default function Routes() {
   const { user } = useAuth()
@@ -31,7 +30,7 @@ export default function Routes() {
     }
 
     if (!user) {
-      return Router.push("/user/login")
+      return Router.push('/user/login')
     }
 
     fetchRoutes(user.name)
