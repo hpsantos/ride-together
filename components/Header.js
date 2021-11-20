@@ -13,7 +13,7 @@ const Header = () => {
   }
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" fixed="top">
       <Container>
         <Link href="/" passHref>
           <Navbar.Brand href="/">Ride Together</Navbar.Brand>
@@ -31,18 +31,13 @@ const Header = () => {
                 </Nav.Link>
               </Link>
             )}
-            <Link href="/about" passHref>
-              <Nav.Link href="/about" active={getActiveClass('/about')}>
-                About
-              </Nav.Link>
-            </Link>
           </Nav>
         </Navbar.Collapse>
 
         {user && (
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              Signed in as: <strong>{user.name}</strong>
+              Signed in as <strong>{user.name}</strong>
             </Navbar.Text>
             <Nav className="ml-3">
               <Nav.Link
