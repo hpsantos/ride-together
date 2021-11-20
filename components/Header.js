@@ -45,7 +45,7 @@ const Header = () => {
                 className="text-danger"
                 active={getActiveClass('/logout')}
               >
-                Sign Out
+                Logout
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

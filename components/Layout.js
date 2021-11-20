@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Container className="pt-3">{children}</Container>
+      <Container className="py-5">{children}</Container>
     </>
   )
 }

@@ -3,7 +3,7 @@ import { Modal } from 'react-bootstrap'
 
 import { Map } from '~components/map/Map'
 
-export const RouteModal = ({ onClose, data }) => {
+export const RouteModal = ({ onClose, route }) => {
   const [show, setShow] = useState(false)
 
   const handleClose = () => {
@@ -12,19 +12,18 @@ export const RouteModal = ({ onClose, data }) => {
   }
 
   useEffect(() => {
-    if (data) {
-      console.log(data)
+    if (route) {
       setShow(true)
     }
-  }, [data])
+  }, [route])
 
   return (
-    <Modal show={show} onHide={handleClose} size="lg">
+    <Modal show={show} onHide={handleClose} fullscreen={true}>
       <Modal.Header closeButton>
-        <Modal.Title>Route</Modal.Title>
+        <Modal.Title>{route.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Map routes={data} />
+        <Map routes={route.routeData} />
       </Modal.Body>
     </Modal>
   )
