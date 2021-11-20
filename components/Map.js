@@ -1,10 +1,12 @@
 import { Wrapper } from '@googlemaps/react-wrapper'
 import { useEffect, useRef, useState } from 'react'
 
+import { generateRandomColor } from "lib/utils"
+
 const initRenderer = (map) => {
-  const polylineOptionsActual = new window.google.maps.Polyline({
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.5,
+  var polylineOptionsActual = new window.google.maps.Polyline({
+    strokeColor: generateRandomColor([false, false, false]),
+    strokeOpacity: 0.9,
     strokeWeight: 3,
   })
 
@@ -20,10 +22,6 @@ export const Map = ({ routes }) => {
   const ref = useRef(null)
   const [map, setMap] = useState(null)
 
-  const renderRoute = (routeData) => {
-    initRenderer(map).setDirections(routeData)
-  }
-
   useEffect(() => {
     if (ref.current && !map) {
       const map = new window.google.maps.Map(ref.current, {
@@ -31,14 +29,31 @@ export const Map = ({ routes }) => {
           lat: 39.74822149361863,
           lng: -8.805537440172467,
         },
-        zoom: 10,
+        zoom: 13,
+        styles: [
+          {
+            featureType: "all",
+            stylers: [{ saturation: -15 }],
+          },
+          {
+            featureType: "poi",
+            stylers: [{ saturation: -50, weight: 1 }],
+          },
+          {
+            featureType: "transit",
+            elementType: "labels.icon",
+            stylers: [{ visibility: "off" }],
+          },
+        ],
       })
 
       setMap(map)
     }
 
     if (map && routes) {
-      routes.map(renderRoute)
+      routes.map((routeData) => {
+        initRenderer(map).setDirections(routeData)
+      })
     }
   }, [ref, map, routes])
 
