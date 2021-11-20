@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Container from 'react-bootstrap/Container'
 
+import Footer from '~components/Footer'
 import Header from '~components/Header'
 
 const Layout = ({ children }) => {
@@ -11,8 +12,11 @@ const Layout = ({ children }) => {
         <meta name="description" content="..." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <Container className="py-5">{children}</Container>
+      <main className="wrapper">
+        <Header />
+        <Container className="py-5">{children}</Container>
+      </main>
+      <Footer />
     </>
   )
 }
