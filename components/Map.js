@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from "react"
 import { Wrapper } from "@googlemaps/react-wrapper"
 
+import { generateRandomColor } from "lib/utils"
+
 const initRenderer = (map) => {
   var polylineOptionsActual = new google.maps.Polyline({
-    strokeColor: "#FF0000",
-    strokeOpacity: 0.5,
+    strokeColor: generateRandomColor([false, false, false]),
+    strokeOpacity: 0.8,
     strokeWeight: 3,
   })
   return new window.google.maps.DirectionsRenderer({
@@ -30,7 +32,22 @@ export const Map = ({ routes }) => {
           lat: 39.74822149361863,
           lng: -8.805537440172467,
         },
-        zoom: 10,
+        zoom: 13,
+        styles: [
+          {
+            featureType: "all",
+            stylers: [{ saturation: -15 }],
+          },
+          {
+            featureType: "poi",
+            stylers: [{ saturation: -50, weight: 1 }],
+          },
+          {
+            featureType: "transit",
+            elementType: "labels.icon",
+            stylers: [{ visibility: "off" }],
+          },
+        ],
       })
 
       setMap(map)
@@ -39,7 +56,7 @@ export const Map = ({ routes }) => {
     if (map && routes) {
       routes.map(renderRoute)
     }
-  }, [ref, map, routes])
+  }, [ref, map, routes, renderRoute])
 
   return <div style={{ height: "300px", width: "50%" }} ref={ref} />
 }
