@@ -4,7 +4,7 @@ import { LoginForm } from '~components/user/LoginForm'
 
 export default function Login() {
   return (
-    <Row className="justify-content-center align-items-center vh-100">
+    <Row className="justify-content-center align-items-center">
       <Col xs="4">
         <Card>
           <Card.Body>
