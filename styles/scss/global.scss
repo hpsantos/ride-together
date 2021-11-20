@@ -1,8 +1,24 @@
 @import "./variables";
 @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons";
+
+html,
+body {
+  height: 100%;
+}
 
 body {
-  padding-top: 56px;
+  padding-top: $navbar-height;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - $navbar-height);
+}
+
+.wrapper {
+  flex: 1 0 auto;
 }
 
 .table > :not(:first-child) {

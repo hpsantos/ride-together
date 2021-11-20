@@ -51,7 +51,7 @@ export default function Routes() {
 
           <Link href="/user/routes/new" passHref>
             <Button as="a" className="ms-auto px-5" href="/">
-              New Route
+              <i className="bi-plus-lg"></i>&nbsp; New Route
             </Button>
           </Link>
         </div>
@@ -87,7 +87,7 @@ export default function Routes() {
                     variant="secondary"
                     onClick={() => handleViewRoute(route)}
                   >
-                    View
+                    <i className="bi-map"></i>&nbsp; View
                   </Button>
                 </td>
               </tr>
