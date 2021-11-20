@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint-fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.12",

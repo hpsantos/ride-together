@@ -8,4 +8,13 @@ const fetchRoutes = async () => {
   return buildResponse(response)
 }
 
-export { fetchRoutes }
+const createRoute = async (params) => {
+  const response = fetch(API_URL, {
+    method: 'POST',
+    body: JSON.stringify(params),
+  })
+
+  return buildResponse(response)
+}
+
+export { createRoute, fetchRoutes }
