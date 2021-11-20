@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 
 import { Map } from '~components/map/Map'
+import { SelectTime } from '~components/SelectTime'
 import { useAuth } from '~context/auth'
 import { createRoute } from '~services/routes'
 
@@ -9,8 +10,8 @@ export default function NewRoute() {
   const { user } = useAuth()
   const [from, setFrom] = useState(() => 'Viseu')
   const [to, setTo] = useState(() => 'Leiria')
-  const [hours, setHours] = useState('')
-  const [minutes, setMinutes] = useState('')
+  const [hours, setHours] = useState('9')
+  const [minutes, setMinutes] = useState('00')
   const [mapRoutes, setMapRoutes] = useState([])
   const [isCreating, setIsCreating] = useState(false)
 
@@ -19,6 +20,7 @@ export default function NewRoute() {
 
     if (!from || !to) {
       alert('Please provide source & destination.')
+      return
     }
 
     // TODO: Clean current routes (not working yet)
@@ -42,14 +44,16 @@ export default function NewRoute() {
   const saveRoute = async () => {
     setIsCreating(true)
 
-    await createRoute({
+    const formData = {
       from,
       to,
       name: `Trip from ${from} to ${to}`,
       routeData: mapRoutes,
-      time: 930, // 9h30m
+      time: parseInt(`${hours}${minutes}`),
       user: user.name,
-    })
+    }
+
+    await createRoute(formData)
 
     setIsCreating(false)
   }
@@ -77,39 +81,21 @@ export default function NewRoute() {
             />
           </Col>
 
-          <Col xs="auto">
-            <Form.Control
-              type="number"
-              min="0"
-              max="23"
-              value={hours}
-              placeholder="Hours"
-              onChange={(e) => setHours(e.target.value)}
+          <Col xs="4">
+            <SelectTime
+              hours={hours}
+              minutes={minutes}
+              onHoursChange={setHours}
+              onMinutesChange={setMinutes}
             />
           </Col>
 
           <Col xs="auto">
-            <Form.Control
-              type="number"
-              min="0"
-              max="59"
-              value={minutes}
-              placeholder="Minutes"
-              onChange={(e) => setMinutes(e.target.value)}
-            />
-          </Col>
-
-          <Col xs="auto">
-            <Button variant="primary" type="submit">
+            <Button className="me-4" variant="secondary" type="submit">
               Check Route
             </Button>
 
-            <Button
-              variant="success"
-              type="submit"
-              onClick={saveRoute}
-              disabled={isCreating}
-            >
+            <Button type="submit" onClick={saveRoute} disabled={isCreating}>
               Save Route
             </Button>
           </Col>
