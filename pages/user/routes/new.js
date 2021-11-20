@@ -15,6 +15,15 @@ export default function NewRoute() {
   const [mapRoutes, setMapRoutes] = useState([])
   const [isCreating, setIsCreating] = useState(false)
 
+  const buildRoute = (routePath) => ({
+    from,
+    to,
+    name: `Trip from ${from} to ${to}`,
+    routeData: routePath,
+    time: parseInt(`${hours}${minutes}`), // 9h30m
+    user: user.name,
+  })
+
   const calculateRoute = (event) => {
     event.preventDefault()
 
@@ -36,24 +45,14 @@ export default function NewRoute() {
 
     directionsService.route(gmapData, function (result, status) {
       if (status == 'OK') {
-        setMapRoutes([result.routes[0].overview_path])
+        setMapRoutes([buildRoute(result.routes[0].overview_path)])
       }
     })
   }
 
   const saveRoute = async () => {
     setIsCreating(true)
-
-    const formData = {
-      from,
-      to,
-      name: `Trip from ${from} to ${to}`,
-      routeData: mapRoutes,
-      time: parseInt(`${hours}${minutes}`),
-      user: user.name,
-    }
-
-    await createRoute(formData)
+    await createRoute(mapRoutes[0])
 
     setIsCreating(false)
   }
