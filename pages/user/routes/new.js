@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Col, Form, Row } from 'react-bootstrap'
+import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
 
 import { Map } from '~components/map/Map'
 import { SelectTime } from '~components/SelectTime'
@@ -60,28 +60,41 @@ export default function NewRoute() {
 
   return (
     <>
-      <h1>New Route</h1>
+      <div className="mb-4">
+        <h1 className="mb-0">New Route</h1>
+      </div>
+
       <Form variant="inline" onSubmit={calculateRoute}>
-        <Row className="align-items-center my-5">
+        <Row className="align-items-center mb-4">
           <Col xs="auto">
-            <Form.Control
-              type="text"
-              placeholder="From (e.g.: Viseu)"
-              value={from}
-              onChange={(e) => setFrom(e.target.value)}
-            />
+            <Row className="g-2">
+              <Col xs="auto">
+                <InputGroup>
+                  <InputGroup.Text id="basic-addon1">From</InputGroup.Text>
+                  <Form.Control
+                    type="text"
+                    placeholder="From (e.g.: Viseu)"
+                    value={from}
+                    onChange={(e) => setFrom(e.target.value)}
+                  />
+                </InputGroup>
+              </Col>
+
+              <Col xs="auto">
+                <InputGroup>
+                  <InputGroup.Text id="basic-addon1">To</InputGroup.Text>
+                  <Form.Control
+                    type="text"
+                    placeholder="To (e.g.: Leiria)"
+                    value={to}
+                    onChange={(e) => setTo(e.target.value)}
+                  />
+                </InputGroup>
+              </Col>
+            </Row>
           </Col>
 
-          <Col xs="auto">
-            <Form.Control
-              type="text"
-              placeholder="To (e.g.: Leiria)"
-              value={to}
-              onChange={(e) => setTo(e.target.value)}
-            />
-          </Col>
-
-          <Col xs="4">
+          <Col xs="3">
             <SelectTime
               hours={hours}
               minutes={minutes}
@@ -91,11 +104,16 @@ export default function NewRoute() {
           </Col>
 
           <Col xs="auto">
-            <Button className="me-4" variant="secondary" type="submit">
-              Check Route
+            <Button className="me-2" variant="secondary" type="submit">
+              Verify
             </Button>
 
-            <Button type="submit" onClick={saveRoute} disabled={isCreating}>
+            <Button
+              type="submit"
+              className="px-4"
+              onClick={saveRoute}
+              disabled={isCreating}
+            >
               Save Route
             </Button>
           </Col>
