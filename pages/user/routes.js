@@ -8,6 +8,7 @@ import { fetchUserRoutes } from "services/user"
 export default function Routes() {
   const { user } = useAuth()
   const [routes, setRoutes] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const formatRouteTime = (routeTime) => {
     const minutes = routeTime.slice(-2)
@@ -21,8 +22,12 @@ export default function Routes() {
     const fetchRoutes = async (username) => {
       if (!mounted) return
 
+      setIsLoading(true)
+
       const response = await fetchUserRoutes(username)
+
       setRoutes(response.data)
+      setIsLoading(false)
     }
 
     if (!user) {
@@ -50,21 +55,24 @@ export default function Routes() {
           </thead>
 
           <tbody>
-            {routes.length === 0 &&
+            {isLoading &&
               <tr>
-                <td colSpan="2">No routes available</td>
-              </tr>}
-            {
-              routes.map((route) => (
-                <tr key={route._id} valign="middle">
-                  <td>{route.name}</td>
-                  <td>{formatRouteTime(route.time.toString())}</td>
-                  <td>
-                    <Button size="sm">View Route</Button>
-                  </td>
-                </tr>
-              ))
+                <td colSpan="3" align="center">Loading data...</td>
+              </tr>
             }
+            {!isLoading && routes.length === 0 &&
+              <tr>
+                <td colSpan="3">No routes available</td>
+              </tr>}
+            {routes.map((route) => (
+              <tr key={route._id} valign="middle">
+                <td>{route.name}</td>
+                <td>{formatRouteTime(route.time.toString())}</td>
+                <td>
+                  <Button size="sm">View Route</Button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
       </>
