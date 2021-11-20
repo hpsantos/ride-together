@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
 
-import { Map } from '~components/Map'
+import { Map } from '~components/map/Map'
 
 export const RouteModal = ({ onClose, data }) => {
   const [show, setShow] = useState(false)

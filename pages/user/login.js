@@ -1,5 +1,6 @@
-import { LoginForm } from 'components/user/LoginForm'
 import { Card, Col, Row } from 'react-bootstrap'
+
+import { LoginForm } from '~components/user/LoginForm'
 
 export default function Login() {
   return (

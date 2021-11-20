@@ -1,7 +1,8 @@
-import { useAuth } from 'context/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Container, Nav, Navbar } from 'react-bootstrap'
+
+import { useAuth } from '~context/auth'
 
 const Header = () => {
   const router = useRouter()
