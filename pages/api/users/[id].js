@@ -1,5 +1,6 @@
-import clientPromise from '~lib/mongodb'
 import mongo from 'mongodb'
+
+import clientPromise from '~lib/mongodb'
 
 const handler = async (req, res) => {
   const { id } = req.query
