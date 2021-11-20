@@ -34,19 +34,24 @@ export const LoginForm = () => {
       {alert && <Alert variant={alert.variant}>{alert.text}</Alert>}
 
       <Form.Group className="mb-4" controlId="formBasicEmail">
+        <Form.Label>Username</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Username"
+          placeholder="Please enter your username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
       </Form.Group>
 
       <Form.Group className="mb-4" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          type="password"
+          placeholder="Please enter your password"
+        />
       </Form.Group>
 
-      <Button variant="primary" type="submit" className="float-end">
+      <Button variant="primary" type="submit" className="px-5 float-end">
         Submit
       </Button>
     </Form>

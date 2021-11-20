@@ -19,7 +19,7 @@ export const RouteModal = ({ onClose, data }) => {
   }, [data])
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
         <Modal.Title>Route</Modal.Title>
       </Modal.Header>

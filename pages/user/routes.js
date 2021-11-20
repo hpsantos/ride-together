@@ -47,7 +47,7 @@ export default function Routes() {
     user && (
       <>
         <h3 className="mb-4">My Routes</h3>
-        <Table striped>
+        <Table striped bordered>
           <thead>
             <tr>
               <th>Name</th>
@@ -59,7 +59,7 @@ export default function Routes() {
           <tbody>
             {routes.length === 0 && (
               <tr>
-                <td colSpan="2">No routes available</td>
+                <td colSpan="3">No routes available</td>
               </tr>
             )}
             {routes.map((route) => (
