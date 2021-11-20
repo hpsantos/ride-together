@@ -2,8 +2,9 @@ import { buildResponse } from './helpers'
 
 const API_URL = '/api/routes'
 
-const fetchRoutes = async () => {
-  const response = await fetch(API_URL)
+const fetchRoutes = async (params = {}) => {
+  const url = `${API_URL}?${new URLSearchParams(params).toString()}`
+  const response = await fetch(url)
 
   return buildResponse(response)
 }

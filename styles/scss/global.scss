@@ -1,7 +1,10 @@
 @import "./variables";
 @import "~bootstrap/scss/bootstrap";
-@import "./utilities";
 
 body {
   padding-top: 56px;
+}
+
+.table > :not(:first-child) {
+  border-top-width: 0;
 }

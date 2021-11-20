@@ -32,7 +32,7 @@ export const LoginForm = () => {
     <Form onSubmit={loginUser} className="p-3">
       {alert && <Alert variant={alert.variant}>{alert.text}</Alert>}
 
-      <Form.Group className="mb-4" controlId="formBasicEmail">
+      <Form.Group className="mb-4" controlId="formUsername">
         <Form.Label>Username</Form.Label>
         <Form.Control
           type="text"
@@ -42,7 +42,7 @@ export const LoginForm = () => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-4" controlId="formBasicPassword">
+      <Form.Group className="mb-4" controlId="formPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control
           type="password"

@@ -24,10 +24,10 @@ const SelectTime = ({ hours, minutes, onHoursChange, onMinutesChange }) => {
         ))}
       </FormSelect>
 
-      <InputGroup.Text id="basic-addon1">H</InputGroup.Text>
+      <InputGroup.Text>H</InputGroup.Text>
 
       <FormSelect
-        aria-label="Select hours"
+        aria-label="Select minutes"
         onChange={(e) => onMinutesChange(e.target.value)}
         value={minutes}
       >
@@ -39,7 +39,7 @@ const SelectTime = ({ hours, minutes, onHoursChange, onMinutesChange }) => {
         ))}
       </FormSelect>
 
-      <InputGroup.Text id="basic-addon1">M</InputGroup.Text>
+      <InputGroup.Text>M</InputGroup.Text>
     </InputGroup>
   )
 }
