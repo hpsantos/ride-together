@@ -52,10 +52,10 @@ export default function Routes() {
     user && (
       <>
         <div className="d-flex align-items-center mb-4">
-          <h3 className="mb-0">My Routes</h3>
+          <h1 className="mb-0">My Routes</h1>
 
           <Link href="/user/routes/new" passHref>
-            <Button as="a" className="ms-auto" href="/">
+            <Button as="a" className="ms-auto px-5" href="/">
               New Route
             </Button>
           </Link>
@@ -87,8 +87,12 @@ export default function Routes() {
                 <td>{route.name}</td>
                 <td>{formatRouteTime(route.time.toString())}</td>
                 <td>
-                  <Button size="sm" onClick={() => handleViewRoute(route)}>
-                    View Route
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    onClick={() => handleViewRoute(route)}
+                  >
+                    View
                   </Button>
                 </td>
               </tr>
