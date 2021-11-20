@@ -24,6 +24,7 @@ export const defaultMapConfigs = {
 }
 
 export const renderLine = (map, route, setRouteDetails) => {
+  console.log(route)
   const line = new window.google.maps.Polyline({
     path: route,
     strokeColor: generateRandomColor([false, false, false]),

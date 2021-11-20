@@ -23,7 +23,7 @@ export const RouteModal = ({ onClose, route }) => {
         <Modal.Title>{route.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Map routes={route.routeData} />
+        <Map routes={[route]} />
       </Modal.Body>
     </Modal>
   )
