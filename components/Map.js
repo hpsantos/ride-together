@@ -1,42 +1,46 @@
 import { Wrapper } from '@googlemaps/react-wrapper'
 import { useEffect, useRef, useState } from 'react'
 
-export const Map = ({ route }) => {
+const initRenderer = (map) => {
+  const polylineOptionsActual = new window.google.maps.Polyline({
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.5,
+    strokeWeight: 3,
+  })
+
+  return new window.google.maps.DirectionsRenderer({
+    map,
+    preserveViewport: true,
+    suppressMarkers: true,
+    polylineOptions: polylineOptionsActual,
+  })
+}
+
+export const Map = ({ routes }) => {
   const ref = useRef(null)
   const [map, setMap] = useState(null)
 
+  const renderRoute = (routeData) => {
+    initRenderer(map).setDirections(routeData)
+  }
+
   useEffect(() => {
     if (ref.current && !map) {
-      setMap(
-        new window.google.maps.Map(ref.current, {
-          center: {
-            lat: 40.7,
-            lng: -7.9,
-          },
-          zoom: 10,
-        })
-      )
-    }
-  }, [ref, map])
-
-  useEffect(() => {
-    if (map && route && route.from && route.to) {
-      const directionsService = new window.google.maps.DirectionsService()
-      const directionsRenderer = new window.google.maps.DirectionsRenderer()
-      directionsRenderer.setMap(map)
-
-      const gmapData = {
-        origin: route.from,
-        destination: route.to,
-        travelMode: 'DRIVING',
-      }
-      directionsService.route(gmapData, function (result, status) {
-        if (status == 'OK') {
-          directionsRenderer.setDirections(result)
-        }
+      const map = new window.google.maps.Map(ref.current, {
+        center: {
+          lat: 39.74822149361863,
+          lng: -8.805537440172467,
+        },
+        zoom: 10,
       })
+
+      setMap(map)
     }
-  }, [map, route])
+
+    if (map && routes) {
+      routes.map(renderRoute)
+    }
+  }, [ref, map, routes])
 
   return <div style={{ height: '300px', width: '50%' }} ref={ref} />
 }
