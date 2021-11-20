@@ -1,4 +1,5 @@
-import { Container, Head } from 'react-bootstrap'
+import { Head } from 'next/head'
+import Container from 'react-bootstrap/Container'
 
 import Header from '~components/Header'
 
