@@ -8,4 +8,10 @@ const fetchUser = async (username) => {
   return buildResponse(response)
 }
 
-export { fetchUser }
+const fetchUserRoutes = async (username) => {
+  const response = await fetch(`${API_URL}/${username}/routes`)
+
+  return buildResponse(response)
+}
+
+export { fetchUser, fetchUserRoutes }
