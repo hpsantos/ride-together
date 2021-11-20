@@ -9,8 +9,8 @@ export default function NewRoute() {
   const { user } = useAuth()
   const [from, setFrom] = useState(() => 'Viseu')
   const [to, setTo] = useState(() => 'Leiria')
-  const [hours, setHours] = useState(null)
-  const [minutes, setMinutes] = useState(null)
+  const [hours, setHours] = useState('')
+  const [minutes, setMinutes] = useState('')
   const [mapRoutes, setMapRoutes] = useState([])
   const [isCreating, setIsCreating] = useState(false)
 
@@ -34,7 +34,7 @@ export default function NewRoute() {
 
     directionsService.route(gmapData, function (result, status) {
       if (status == 'OK') {
-        setMapRoutes([result])
+        setMapRoutes([result.routes[0].overview_path])
       }
     })
   }
@@ -46,7 +46,7 @@ export default function NewRoute() {
       from,
       to,
       name: `Trip from ${from} to ${to}`,
-      routeData: mapRoutes[0].routes[0].overviewPath,
+      routeData: mapRoutes,
       time: 930, // 9h30m
       user: user.name,
     })
