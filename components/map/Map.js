@@ -42,7 +42,12 @@ export const MapContent = ({ routes }) => {
     }
   }, [ref, map, routes])
 
-  return <div style={{ height: '300px', width: '100%' }} ref={ref} />
+  return (
+    <div
+      style={{ height: '100%', width: '100%', minHeight: '400px' }}
+      ref={ref}
+    />
+  )
 }
 
 export const Map = (props) => {
