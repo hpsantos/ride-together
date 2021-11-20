@@ -6,7 +6,7 @@ import { generateRandomColor } from "lib/utils"
 const initRenderer = (map) => {
   var polylineOptionsActual = new google.maps.Polyline({
     strokeColor: generateRandomColor([false, false, false]),
-    strokeOpacity: 0.8,
+    strokeOpacity: 0.9,
     strokeWeight: 3,
   })
   return new window.google.maps.DirectionsRenderer({
@@ -20,10 +20,6 @@ const initRenderer = (map) => {
 export const Map = ({ routes }) => {
   const ref = useRef(null)
   const [map, setMap] = useState(null)
-
-  const renderRoute = (routeData) => {
-    initRenderer(map).setDirections(routeData)
-  }
 
   useEffect(() => {
     if (ref.current && !map) {
@@ -54,9 +50,11 @@ export const Map = ({ routes }) => {
     }
 
     if (map && routes) {
-      routes.map(renderRoute)
+      routes.map((routeData) => {
+        initRenderer(map).setDirections(routeData)
+      })
     }
-  }, [ref, map, routes, renderRoute])
+  }, [ref, map, routes])
 
   return <div style={{ height: "300px", width: "50%" }} ref={ref} />
 }
