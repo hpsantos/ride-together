@@ -56,7 +56,7 @@ const initRenderer = (map, route) => {
   })
 }
 
-export const Map = ({ routes }) => {
+export const MapContent = ({ routes }) => {
   const ref = useRef(null)
   const [map, setMap] = useState(null)
 
@@ -98,10 +98,10 @@ export const Map = ({ routes }) => {
   return <div style={{ height: '300px', width: '50%' }} ref={ref} />
 }
 
-export const MapContainer = (props) => {
+export const Map = (props) => {
   return (
     <Wrapper apiKey={'AIzaSyBV1iRYv9bARrGvtAq3a5tb86YRs6KMI8k'}>
-      <Map {...props} />
+      <MapContent {...props} />
     </Wrapper>
   )
 }
