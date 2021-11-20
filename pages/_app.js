@@ -1,8 +1,9 @@
 import 'styles/scss/global.scss'
 
-import Layout from 'components/Layout'
-import { AuthProvider } from 'context/auth'
 import SSRProvider from 'react-bootstrap/SSRProvider'
+
+import Layout from '~components/Layout'
+import { AuthProvider } from '~context/auth'
 
 function MyApp({ Component, pageProps }) {
   return (

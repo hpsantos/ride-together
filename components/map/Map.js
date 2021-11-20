@@ -1,24 +1,9 @@
 import { Wrapper } from '@googlemaps/react-wrapper'
 import { useEffect, useRef, useState } from 'react'
 
-import { generateRandomColor } from "lib/utils"
+import { renderLine } from './helpers'
 
-const initRenderer = (map) => {
-  var polylineOptionsActual = new window.google.maps.Polyline({
-    strokeColor: generateRandomColor([false, false, false]),
-    strokeOpacity: 0.9,
-    strokeWeight: 3,
-  })
-
-  return new window.google.maps.DirectionsRenderer({
-    map,
-    preserveViewport: true,
-    suppressMarkers: true,
-    polylineOptions: polylineOptionsActual,
-  })
-}
-
-export const Map = ({ routes }) => {
+export const MapContent = ({ routes }) => {
   const ref = useRef(null)
   const [map, setMap] = useState(null)
 
@@ -32,17 +17,17 @@ export const Map = ({ routes }) => {
         zoom: 13,
         styles: [
           {
-            featureType: "all",
+            featureType: 'all',
             stylers: [{ saturation: -15 }],
           },
           {
-            featureType: "poi",
+            featureType: 'poi',
             stylers: [{ saturation: -50, weight: 1 }],
           },
           {
-            featureType: "transit",
-            elementType: "labels.icon",
-            stylers: [{ visibility: "off" }],
+            featureType: 'transit',
+            elementType: 'labels.icon',
+            stylers: [{ visibility: 'off' }],
           },
         ],
       })
@@ -52,7 +37,7 @@ export const Map = ({ routes }) => {
 
     if (map && routes) {
       routes.map((routeData) => {
-        initRenderer(map).setDirections(routeData)
+        renderLine(map, routeData) // .setDirections(routeData)
       })
     }
   }, [ref, map, routes])
@@ -60,10 +45,10 @@ export const Map = ({ routes }) => {
   return <div style={{ height: '300px', width: '50%' }} ref={ref} />
 }
 
-export const MapContainer = (props) => {
+export const Map = (props) => {
   return (
     <Wrapper apiKey={'AIzaSyBV1iRYv9bARrGvtAq3a5tb86YRs6KMI8k'}>
-      <Map {...props} />
+      <MapContent {...props} />
     </Wrapper>
   )
 }

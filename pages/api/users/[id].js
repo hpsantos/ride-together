@@ -1,4 +1,4 @@
-import clientPromise from 'lib/mongodb'
+import clientPromise from '~lib/mongodb'
 import mongo from 'mongodb'
 
 const handler = async (req, res) => {

@@ -1,4 +1,4 @@
-import clientPromise from 'lib/mongodb'
+import clientPromise from '~lib/mongodb'
 
 const allRoutes = async (res, client) => {
   const routes = await client.db().collection('routes').find({}).toArray()

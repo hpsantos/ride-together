@@ -1,19 +1,27 @@
-import { useAuth } from 'context/auth'
 import Link from 'next/link'
 import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
-import { fetchUserRoutes } from 'services/user'
+
+import { RouteModal } from '~components/RouteModal'
+import { useAuth } from '~context/auth'
+import { dummyRouteData1 } from '~lib/dummy'
+import { fetchUserRoutes } from '~services/user'
 
 export default function Routes() {
   const { user } = useAuth()
   const [routes, setRoutes] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [routeData, setRouteData] = useState(null)
 
   const formatRouteTime = (routeTime) => {
     const minutes = routeTime.slice(-2)
     const hours = routeTime.slice(0, routeTime.length - 2)
     return `${hours}:${minutes}`
+  }
+
+  const handleViewRoute = () => {
+    setRouteData([dummyRouteData1])
   }
 
   useEffect(() => {
@@ -53,11 +61,11 @@ export default function Routes() {
             </Button>
           </Link>
         </div>
-        <Table striped>
+        <Table striped bordered>
           <thead>
             <tr>
               <th>Name</th>
-              <th>Hour</th>
+              <th>Time</th>
               <th></th>
             </tr>
           </thead>
@@ -80,12 +88,15 @@ export default function Routes() {
                 <td>{route.name}</td>
                 <td>{formatRouteTime(route.time.toString())}</td>
                 <td>
-                  <Button size="sm">View Route</Button>
+                  <Button size="sm" onClick={handleViewRoute}>
+                    View Route
+                  </Button>
                 </td>
               </tr>
             ))}
           </tbody>
         </Table>
+        <RouteModal onClose={() => setRouteData(null)} data={routeData} />
       </>
     )
   )
