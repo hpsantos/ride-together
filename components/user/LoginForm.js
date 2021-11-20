@@ -10,7 +10,6 @@ export const LoginForm = () => {
   const [alert, setAlert] = useState(() => null)
 
   useEffect(() => {
-    console.log(user)
     if (user) {
       return Router.push('/user/routes')
     }

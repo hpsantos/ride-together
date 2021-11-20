@@ -6,6 +6,7 @@ import { Button, Table } from 'react-bootstrap'
 import { RouteModal } from '~components/RouteModal'
 import { useAuth } from '~context/auth'
 import { dummyRouteData1 } from '~lib/dummy'
+import { formatRouteTime } from '~lib/utils'
 import { fetchUserRoutes } from '~services/user'
 
 export default function Routes() {
@@ -13,12 +14,6 @@ export default function Routes() {
   const [routes, setRoutes] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [routeData, setRouteData] = useState(null)
-
-  const formatRouteTime = (routeTime) => {
-    const minutes = routeTime.slice(-2)
-    const hours = routeTime.slice(0, routeTime.length - 2)
-    return `${hours}:${minutes}`
-  }
 
   const handleViewRoute = () => {
     setRouteData([dummyRouteData1])

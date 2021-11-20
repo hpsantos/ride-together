@@ -1,13 +1,36 @@
 import { generateRandomColor } from '~lib/utils'
 
-export const renderLine = (map, route) => {
+export const defaultMapConfigs = {
+  center: {
+    lat: 39.74822149361863,
+    lng: -8.805537440172467,
+  },
+  zoom: 13,
+  styles: [
+    {
+      featureType: 'all',
+      stylers: [{ saturation: -15 }],
+    },
+    {
+      featureType: 'poi',
+      stylers: [{ saturation: -50, weight: 1 }],
+    },
+    {
+      featureType: 'transit',
+      elementType: 'labels.icon',
+      stylers: [{ visibility: 'off' }],
+    },
+  ],
+}
+
+export const renderLine = (map, route, setRouteDetails) => {
   const line = new window.google.maps.Polyline({
     path: route,
     strokeColor: generateRandomColor([false, false, false]),
     strokeOpacity: 0.9,
     strokeWeight: 3,
+    map,
   })
-  line.setMap(map)
 
   const startMarker = new window.google.maps.Marker({
     position: route[0],
@@ -33,6 +56,10 @@ export const renderLine = (map, route) => {
       scale: 1.5,
       anchor: new window.google.maps.Point(12, 21),
     },
+  })
+
+  window.google.maps.event.addListener(line, 'click', function () {
+    setRouteDetails()
   })
 
   window.google.maps.event.addListener(line, 'mouseover', function () {

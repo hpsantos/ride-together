@@ -1,48 +1,43 @@
 import { Wrapper } from '@googlemaps/react-wrapper'
 import { useEffect, useRef, useState } from 'react'
 
-import { renderLine } from './helpers'
+import { RouteDetailsModal } from '~components/RouteDetailsModal'
+
+import { defaultMapConfigs, renderLine } from './helpers'
 
 export const MapContent = ({ routes }) => {
   const ref = useRef(null)
   const [map, setMap] = useState(null)
+  const [routeDetails, setRouteDetails] = useState(null)
 
   useEffect(() => {
     if (ref.current && !map) {
-      const map = new window.google.maps.Map(ref.current, {
-        center: {
-          lat: 39.74822149361863,
-          lng: -8.805537440172467,
-        },
-        zoom: 13,
-        styles: [
-          {
-            featureType: 'all',
-            stylers: [{ saturation: -15 }],
-          },
-          {
-            featureType: 'poi',
-            stylers: [{ saturation: -50, weight: 1 }],
-          },
-          {
-            featureType: 'transit',
-            elementType: 'labels.icon',
-            stylers: [{ visibility: 'off' }],
-          },
-        ],
-      })
+      const map = new window.google.maps.Map(ref.current, defaultMapConfigs)
 
       setMap(map)
     }
 
+    const routeClicked = (index) => {
+      setRouteDetails(routes[index])
+    }
+
     if (map && routes) {
-      routes.map((routeData) => {
-        renderLine(map, routeData) // .setDirections(routeData)
+      routes.map(({ routeData }, index) => {
+        renderLine(map, routeData, () => routeClicked(index))
       })
     }
   }, [ref, map, routes])
 
-  return <div style={{ height: '300px', width: '50%' }} ref={ref} />
+  return (
+    <>
+      <div style={{ height: '300px', width: '50%' }} ref={ref} />
+
+      <RouteDetailsModal
+        onClose={() => setRouteDetails(null)}
+        data={routeDetails}
+      />
+    </>
+  )
 }
 
 export const Map = (props) => {
