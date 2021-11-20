@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
 
 import { Map } from '~components/map/Map'
@@ -10,13 +10,10 @@ export default function Home() {
   const [minutes, setMinutes] = useState('')
 
   const [routes, setRoutes] = useState([])
-  const [routeDataCollection, setRouteDataCollection] = useState([])
 
   const searchRoutes = async () => {
     const response = await fetchRoutes({ time: `${hours}${minutes}` })
-
     setRoutes(response.data)
-    setRouteDataCollection(response.data.map((route) => route.routeData))
   }
 
   return (
@@ -38,7 +35,7 @@ export default function Home() {
             </Button>
           </Col>
         </Row>
-        <Map routes={routeDataCollection} />
+        <Map routes={routes} />
       </main>
     </div>
   )
