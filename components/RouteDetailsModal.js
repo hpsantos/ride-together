@@ -80,10 +80,18 @@ export const RouteDetailsModal = ({ onClose, data }) => {
           ))}
         </Row>
         <div className="text-center my-4">
-          <Button className="px-5 mx-auto mb-2">
-            <i className="bi-gift" />
-            &nbsp; Reward
-          </Button>
+          <div className="mb-2">
+            <Button variant="success" className="px-5 mx-1">
+              <i className="bi-telephone" />
+              &nbsp; Contact
+            </Button>
+
+            <Button className="px-5 mx-1">
+              <i className="bi-gift" />
+              &nbsp; Reward
+            </Button>
+          </div>
+
           <div className="text-secondary small">
             You can help your partner with the travel costs.
           </div>

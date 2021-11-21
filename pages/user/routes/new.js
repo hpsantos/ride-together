@@ -8,7 +8,7 @@ import { createRoute } from '~services/routes'
 
 export default function NewRoute() {
   const initialState = {
-    from: 'Viseu',
+    from: 'Barosa',
     to: 'Leiria',
     hours: '9',
     minutes: '00',
