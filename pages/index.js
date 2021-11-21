@@ -1,14 +1,16 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 
 import { Map } from '~components/map/Map'
 import { SelectTime } from '~components/SelectTime'
+import { useDebounce } from '~lib/utils'
 import { fetchRoutes } from '~services/routes'
 
 export default function Home() {
   const currentMarker = useRef(null)
   const [hours, setHours] = useState('')
   const [minutes, setMinutes] = useState('')
+  const [range, setRange] = useState(0)
 
   const [routes, setRoutes] = useState([])
 
@@ -34,6 +36,26 @@ export default function Home() {
       lng: position.lng(),
       radius: 0.001,
     })
+  }
+  const debouncedRange = useDebounce(range, 500)
+
+  // Effect for API call
+  useEffect(
+    () => {
+      if (debouncedRange) {
+        console.log('fetching routes ', debouncedRange)
+        fetchRoutesByPosition({
+          lat: currentMarker.current.position.lat(),
+          lng: currentMarker.current.position.lng(),
+          radius: 0.001 + debouncedRange / 1000,
+        })
+      }
+    },
+    [debouncedRange] // Only call effect if debounced search term changes
+  )
+
+  const updateRange = (event) => {
+    setRange(event.target.value)
   }
 
   const fetchRoutesByPosition = async ({
@@ -82,7 +104,13 @@ export default function Home() {
         </Col>
         <Col xs="2">
           <Form.Label className="small mb-0">Distance radius</Form.Label>
-          <Form.Range min="0" max="25" />
+          <Form.Range
+            disabled={currentMarker.current === null}
+            value={range}
+            onChange={updateRange}
+            min="0"
+            max="25"
+          />
         </Col>
       </Row>
       <Map routes={routes} onMapClick={handleMapClick} />

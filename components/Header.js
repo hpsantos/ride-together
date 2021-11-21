@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 
 import { useAuth } from '~context/auth'
+import { getFullName } from '~lib/utils'
 
 const Header = () => {
   const router = useRouter()
@@ -46,7 +47,7 @@ const Header = () => {
         {user && (
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              Signed in as <strong>{user.name}</strong>
+              Signed in as <strong>{getFullName(user.name)}</strong>
             </Navbar.Text>
             <Nav className="ml-3">
               <Nav.Link
