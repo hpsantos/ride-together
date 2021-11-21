@@ -2,11 +2,7 @@ import { FormSelect, InputGroup } from 'react-bootstrap'
 
 const hoursArray = () => [...Array(24).keys()]
 
-const minutesArray = () =>
-  [...Array(60).keys()].map((number) => {
-    const numberString = number.toString()
-    return numberString.length > '1' ? numberString : `0${numberString}`
-  })
+const minutesArray = () => ['00', '15', '30', '45']
 
 const SelectTime = ({ hours, minutes, onHoursChange, onMinutesChange }) => {
   return (

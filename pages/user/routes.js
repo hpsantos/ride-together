@@ -5,7 +5,11 @@ import { Button, Table } from 'react-bootstrap'
 
 import { RouteModal } from '~components/RouteModal'
 import { useAuth } from '~context/auth'
-import { formatRouteTime } from '~lib/utils'
+import {
+  formatRouteTime,
+  getRandomRouteDistance,
+  getRandomRouteType,
+} from '~lib/utils'
 import { fetchUserRoutes } from '~services/user'
 
 export default function Routes() {
@@ -59,6 +63,8 @@ export default function Routes() {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Type</th>
+              <th>Distance</th>
               <th>Time</th>
               <th></th>
             </tr>
@@ -67,19 +73,21 @@ export default function Routes() {
           <tbody>
             {isLoading && (
               <tr>
-                <td colSpan="3" align="center">
+                <td colSpan="5" align="center">
                   Loading routes...
                 </td>
               </tr>
             )}
             {!isLoading && routes.length === 0 && (
               <tr>
-                <td colSpan="3">No routes available</td>
+                <td colSpan="5">No routes available</td>
               </tr>
             )}
             {routes.map((route) => (
               <tr key={route._id} valign="middle">
                 <td>{route.name}</td>
+                <td>{getRandomRouteType()}</td>
+                <td>{getRandomRouteDistance()}</td>
                 <td>{formatRouteTime(route.time.toString())}</td>
                 <td>
                   <Button
