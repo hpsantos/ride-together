@@ -12,8 +12,11 @@ export default function Home() {
   const [hours, setHours] = useState('')
   const [minutes, setMinutes] = useState('')
   const [range, setRange] = useState(0)
-
   const [routes, setRoutes] = useState([])
+
+  const getMapRadius = (range) => {
+    return 0.001 + range / 1000
+  }
 
   const searchRoutes = async () => {
     const response = await fetchRoutes({ time: `${hours}${minutes}` })
@@ -36,7 +39,7 @@ export default function Home() {
     fetchRoutesByPosition({
       lat: position.lat(),
       lng: position.lng(),
-      radius: 0.001,
+      radius: getMapRadius(range),
     })
   }
   const debouncedRange = useDebounce(range, 500)
@@ -45,11 +48,10 @@ export default function Home() {
   useEffect(
     () => {
       if (debouncedRange) {
-        console.log('fetching routes ', debouncedRange)
         fetchRoutesByPosition({
           lat: currentMarker.current.position.lat(),
           lng: currentMarker.current.position.lng(),
-          radius: 0.001 + debouncedRange / 1000,
+          radius: getMapRadius(debouncedRange),
         })
       }
     },

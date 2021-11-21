@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
+import { Alert, Button, Col, Form, InputGroup, Row } from 'react-bootstrap'
 
 import { Map } from '~components/map/Map'
 import { SelectTime } from '~components/SelectTime'
@@ -7,13 +7,20 @@ import { useAuth } from '~context/auth'
 import { createRoute } from '~services/routes'
 
 export default function NewRoute() {
+  const initialState = {
+    from: 'Viseu',
+    to: 'Leiria',
+    hours: '9',
+    minutes: '00',
+  }
   const { user } = useAuth()
-  const [from, setFrom] = useState(() => 'Viseu')
-  const [to, setTo] = useState(() => 'Leiria')
-  const [hours, setHours] = useState('9')
-  const [minutes, setMinutes] = useState('00')
+  const [from, setFrom] = useState(() => initialState.from)
+  const [to, setTo] = useState(() => initialState.to)
+  const [hours, setHours] = useState(initialState.hours)
+  const [minutes, setMinutes] = useState(initialState.minutes)
   const [mapRoutes, setMapRoutes] = useState([])
   const [isCreating, setIsCreating] = useState(false)
+  const [alert, setAlert] = useState(null)
 
   const buildRoute = (routePath) => ({
     from,
@@ -24,6 +31,22 @@ export default function NewRoute() {
     user: user.name,
   })
 
+  const resetFormState = () => {
+    setFrom(initialState.from)
+    setTo(initialState.to)
+    setHours(initialState.hours)
+    setMinutes(initialState.minutes)
+    setMapRoutes([])
+  }
+
+  const showAlert = (message, variant = 'success') => {
+    setAlert({ variant, message })
+
+    setTimeout(() => {
+      setAlert(null)
+    }, 3000)
+  }
+
   const calculateRoute = (event) => {
     event.preventDefault()
 
@@ -32,7 +55,6 @@ export default function NewRoute() {
       return
     }
 
-    // TODO: Clean current routes (not working yet)
     setMapRoutes([])
 
     const directionsService = new window.google.maps.DirectionsService()
@@ -54,15 +76,20 @@ export default function NewRoute() {
     setIsCreating(true)
     await createRoute(mapRoutes[0])
 
+    showAlert('Route saved successfully')
+    resetFormState()
     setIsCreating(false)
   }
 
   return (
     <>
+      <Alert show={alert !== null} variant={alert && alert.variant}>
+        {alert && alert.message}
+      </Alert>
+
       <div className="mb-4">
         <h1 className="mb-0">New Route</h1>
       </div>
-
       <Form variant="inline" onSubmit={calculateRoute}>
         <Row className="align-items-center mb-4">
           <Col xs="auto">
@@ -118,7 +145,6 @@ export default function NewRoute() {
           </Col>
         </Row>
       </Form>
-
       <Map routes={mapRoutes} />
     </>
   )
