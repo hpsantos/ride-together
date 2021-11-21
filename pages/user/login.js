@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Card, Col, Row } from 'react-bootstrap'
 
 import { LoginForm } from '~components/user/LoginForm'
