@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 
+import { defaultMarkerConfig } from '~components/map/helpers'
 import { Map } from '~components/map/Map'
 import { SelectTime } from '~components/SelectTime'
 import { useDebounce } from '~lib/utils'
@@ -31,6 +32,7 @@ export default function Home() {
 
     currentMarker.current = new window.google.maps.Marker({
       position: clickEvent.latLng,
+      icon: defaultMarkerConfig,
       map,
     })
 
