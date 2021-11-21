@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Container, Nav, Navbar } from 'react-bootstrap'
@@ -16,7 +17,15 @@ const Header = () => {
     <Navbar bg="light" expand="lg" fixed="top">
       <Container>
         <Link href="/" passHref>
-          <Navbar.Brand href="/">Ride Together</Navbar.Brand>
+          <Navbar.Brand href="/">
+            <Image
+              src="/assets/logo.png"
+              width="20"
+              height="20"
+              alt="RideTogether logo"
+            />
+            &nbsp;Ride<strong>Together</strong>
+          </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
