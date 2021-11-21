@@ -1,6 +1,6 @@
-@import "./variables";
-@import "~bootstrap/scss/bootstrap";
-@import "~bootstrap-icons/font/bootstrap-icons";
+@import './variables';
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons';
 
 html,
 body {
@@ -23,6 +23,11 @@ body {
 
 .table > :not(:first-child) {
   border-top-width: 0;
+}
+
+.table .w-auto {
+  width: 1% !important;
+  white-space: nowrap;
 }
 
 .bi-heart-fill:before {

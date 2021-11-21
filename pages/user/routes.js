@@ -66,7 +66,7 @@ export default function Routes() {
               <th>Type</th>
               <th>Distance</th>
               <th>Time</th>
-              <th></th>
+              <th className="w-auto"></th>
             </tr>
           </thead>
 
@@ -89,13 +89,18 @@ export default function Routes() {
                 <td>{getRandomRouteType()}</td>
                 <td>{getRandomRouteDistance()}</td>
                 <td>{formatRouteTime(route.time.toString())}</td>
-                <td>
+                <td className="w-auto">
                   <Button
                     size="sm"
                     variant="secondary"
+                    className="me-1"
                     onClick={() => handleViewRoute(route)}
                   >
                     <i className="bi-map"></i>&nbsp; View
+                  </Button>
+
+                  <Button size="sm" variant="danger">
+                    <i className="bi-trash"></i>
                   </Button>
                 </td>
               </tr>
