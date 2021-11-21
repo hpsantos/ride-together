@@ -65,7 +65,7 @@ export const MapContent = ({ routes, onMapClick }) => {
 
 export const Map = (props) => {
   return (
-    <Wrapper apiKey={'AIzaSyBV1iRYv9bARrGvtAq3a5tb86YRs6KMI8k'}>
+    <Wrapper apiKey={'YOUR_API_KEY_HERE'}>
       <MapContent {...props} />
     </Wrapper>
   )

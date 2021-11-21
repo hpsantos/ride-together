@@ -1,7 +1,10 @@
 # Ride Together
 
-This is a project developed for the first edition of the [geekathon](https://www.geekathon.dev/). 
-We used [Next.js](https://nextjs.org/) bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a project developed for the first edition of the [geekathon](https://www.geekathon.dev/) (Nov 2021). 
+It uses [Next.js](https://nextjs.org/) bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+This code is meant only for a small demo and should not be used in a production environment.
+It was done in under 24hours and is meant only to be used to demonstrate the concept.
 
 ## Getting Started
 
