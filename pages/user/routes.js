@@ -7,8 +7,8 @@ import { RouteModal } from '~components/RouteModal'
 import { useAuth } from '~context/auth'
 import {
   formatRouteTime,
-  getRandomRouteType,
   getRandomRouteDistance,
+  getRandomRouteType,
 } from '~lib/utils'
 import { fetchUserRoutes } from '~services/user'
 
