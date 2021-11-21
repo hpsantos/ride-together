@@ -12,7 +12,7 @@ export default function Login() {
               Ride<strong>Together</strong>
             </h2>
 
-            <p className="fs-5">Please enter your credentials</p>
+            <p className="lead text-muted">Please enter your credentials</p>
           </div>
         </div>
 

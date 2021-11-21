@@ -21,9 +21,11 @@ export const LoginForm = () => {
     const answer = await fetchUser(username)
 
     if (answer.status != 200) {
-      setAlert({ variant: 'danger', text: 'Error logging in' })
+      setAlert({
+        variant: 'danger',
+        text: 'Invalid credentials. Please try again.',
+      })
     } else {
-      setAlert({ variant: 'success', text: 'Logged in successfully' })
       setUser(answer.data)
     }
   }
@@ -43,7 +45,7 @@ export const LoginForm = () => {
 
       <Form.Group className="mb-4" controlId="formPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" />
+        <Form.Control type="password" value="password" />
       </Form.Group>
 
       <Button variant="primary" type="submit" className="px-5 float-end">
