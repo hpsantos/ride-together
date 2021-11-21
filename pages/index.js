@@ -32,7 +32,7 @@ export default function Home() {
 
     currentMarker.current = new window.google.maps.Marker({
       position: clickEvent.latLng,
-      icon: defaultMarkerConfig,
+      icon: defaultMarkerConfig(),
       map,
     })
 

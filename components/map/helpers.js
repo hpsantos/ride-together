@@ -26,7 +26,7 @@ export const defaultMapConfigs = {
   controlSize: 24,
 }
 
-export const defaultMarkerConfig = {
+export const defaultMarkerConfig = () => ({
   path: 'M 12,2 C 8.1340068,2 5,5.1340068 5,9 c 0,5.25 7,13 7,13 0,0 7,-7.75 7,-13 0,-3.8659932 -3.134007,-7 -7,-7 z',
   fillColor: '#dd3444',
   fillOpacity: 1,
@@ -35,7 +35,7 @@ export const defaultMarkerConfig = {
   rotation: 0,
   scale: 1.5,
   anchor: new window.google.maps.Point(12, 21),
-}
+})
 
 export const renderLine = (map, route, setRouteDetails, index) => {
   const line = new window.google.maps.Polyline({
@@ -64,7 +64,7 @@ export const renderLine = (map, route, setRouteDetails, index) => {
 
   const endMarker = new window.google.maps.Marker({
     position: route[route.length - 1],
-    icon: defaultMarkerConfig,
+    icon: defaultMarkerConfig(),
   })
 
   window.google.maps.event.addListener(line, 'click', function () {
