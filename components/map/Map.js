@@ -5,8 +5,9 @@ import { RouteDetailsModal } from '~components/RouteDetailsModal'
 
 import { defaultMapConfigs, renderLine } from './helpers'
 
-export const MapContent = ({ routes }) => {
+export const MapContent = ({ routes, onMapClick }) => {
   const ref = useRef(null)
+  const listeners = useRef([])
   const [map, setMap] = useState(null)
   const [routeDetails, setRouteDetails] = useState(null)
 
@@ -25,8 +26,22 @@ export const MapContent = ({ routes }) => {
       routes.map(({ routeData }, index) => {
         renderLine(map, routeData, () => routeClicked(index))
       })
+
+      if (onMapClick) {
+        listeners.current.push(
+          window.google.maps.event.addListener(map, 'click', (event) => {
+            onMapClick(map, event)
+          })
+        )
+      }
+
+      return () => {
+        listeners.current.map((listener) =>
+          window.google.maps.event.removeListener(listener)
+        )
+      }
     }
-  }, [ref, map, routes])
+  }, [ref, map, routes, onMapClick])
 
   return (
     <>

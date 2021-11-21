@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Button, Col, Row } from 'react-bootstrap'
 
 import { Map } from '~components/map/Map'
@@ -6,6 +6,7 @@ import { SelectTime } from '~components/SelectTime'
 import { fetchRoutes } from '~services/routes'
 
 export default function Home() {
+  const currentMarker = useRef(null)
   const [hours, setHours] = useState('')
   const [minutes, setMinutes] = useState('')
 
@@ -13,6 +14,27 @@ export default function Home() {
 
   const searchRoutes = async () => {
     const response = await fetchRoutes({ time: `${hours}${minutes}` })
+    setRoutes(response.data)
+  }
+
+  const handleMapClick = (map, clickEvent) => {
+    const position = clickEvent.latLng
+
+    if (currentMarker.current) {
+      currentMarker.current.setMap(null)
+    }
+
+    currentMarker.current = new window.google.maps.Marker({
+      position: clickEvent.latLng,
+      map,
+    })
+
+    fetchRoutesByPosition({ lat: position.lat(), lng: position.lng() })
+  }
+
+  const fetchRoutesByPosition = async ({ lat, lng }) => {
+    console.log('fetchRoutesByPosition', lat, lng)
+    const response = await fetchRoutes()
     setRoutes(response.data)
   }
 
@@ -34,7 +56,7 @@ export default function Home() {
           </Button>
         </Col>
       </Row>
-      <Map routes={routes} />
+      <Map routes={routes} onMapClick={handleMapClick} />
     </>
   )
 }
