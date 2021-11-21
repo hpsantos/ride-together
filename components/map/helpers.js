@@ -71,4 +71,6 @@ export const renderLine = (map, route, setRouteDetails) => {
     startMarker.setMap(null)
     endMarker.setMap(null)
   })
+
+  return line
 }

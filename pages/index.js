@@ -29,13 +29,29 @@ export default function Home() {
       map,
     })
 
-    fetchRoutesByPosition({ lat: position.lat(), lng: position.lng() })
+    fetchRoutesByPosition({
+      lat: position.lat(),
+      lng: position.lng(),
+      radius: 0.001,
+    })
   }
 
-  const fetchRoutesByPosition = async ({ lat, lng }) => {
-    console.log('fetchRoutesByPosition', lat, lng)
+  const fetchRoutesByPosition = async ({
+    lat: markerLat,
+    lng: markerLng,
+    radius,
+  }) => {
     const response = await fetchRoutes()
-    setRoutes(response.data)
+    const closestRoutes = response.data.filter(({ routeData }) => {
+      return routeData.some(
+        ({ lat, lng }) =>
+          lat < markerLat + radius &&
+          lat > markerLat - radius &&
+          lng < markerLng + radius &&
+          lng > markerLng - radius
+      )
+    })
+    setRoutes(closestRoutes)
   }
 
   return (

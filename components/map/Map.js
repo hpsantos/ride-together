@@ -8,6 +8,7 @@ import { defaultMapConfigs, renderLine } from './helpers'
 export const MapContent = ({ routes, onMapClick }) => {
   const ref = useRef(null)
   const listeners = useRef([])
+  const lines = useRef([])
   const [map, setMap] = useState(null)
   const [routeDetails, setRouteDetails] = useState(null)
 
@@ -22,11 +23,7 @@ export const MapContent = ({ routes, onMapClick }) => {
       setRouteDetails(routes[index])
     }
 
-    if (map && routes) {
-      routes.map(({ routeData }, index) => {
-        renderLine(map, routeData, () => routeClicked(index))
-      })
-
+    if (map) {
       if (onMapClick) {
         listeners.current.push(
           window.google.maps.event.addListener(map, 'click', (event) => {
@@ -35,10 +32,19 @@ export const MapContent = ({ routes, onMapClick }) => {
         )
       }
 
-      return () => {
-        listeners.current.map((listener) =>
-          window.google.maps.event.removeListener(listener)
-        )
+      lines.current.map((line) => line.setMap(null))
+      if (routes) {
+        routes.map(({ routeData }, index) => {
+          lines.current.push(
+            renderLine(map, routeData, () => routeClicked(index))
+          )
+        })
+
+        return () => {
+          listeners.current.map((listener) =>
+            window.google.maps.event.removeListener(listener)
+          )
+        }
       }
     }
   }, [ref, map, routes, onMapClick])
