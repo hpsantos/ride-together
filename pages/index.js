@@ -41,7 +41,9 @@ export default function Home() {
   return (
     <>
       <div className="text-center">
-        <h1>Welcome to Ride Together!</h1>
+        <h2>
+          Welcome to Ride<strong>Together!</strong>
+        </h2>
         <p className="lead text-muted">
           Get started by searching for routes below
         </p>

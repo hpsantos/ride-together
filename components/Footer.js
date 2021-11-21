@@ -1,4 +1,4 @@
-import { Col, Container, Row } from 'react-bootstrap'
+import { Badge, Col, Container, Row } from 'react-bootstrap'
 
 const Footer = () => {
   return (
@@ -6,7 +6,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col>
-            Ride Together <span className="text-secondary">v0.0.1</span>
+            Ride<strong>Together</strong>
           </Col>
           <Col className="text-end">
             Designed and built with{' '}
