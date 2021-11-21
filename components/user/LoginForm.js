@@ -36,7 +36,6 @@ export const LoginForm = () => {
         <Form.Label>Username</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Please enter your username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -44,14 +43,11 @@ export const LoginForm = () => {
 
       <Form.Group className="mb-4" controlId="formPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Please enter your password"
-        />
+        <Form.Control type="password" />
       </Form.Group>
 
       <Button variant="primary" type="submit" className="px-5 float-end">
-        Submit
+        Login
       </Button>
     </Form>
   )
