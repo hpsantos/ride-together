@@ -24,3 +24,9 @@ body {
 .table > :not(:first-child) {
   border-top-width: 0;
 }
+
+.bi-heart-fill {
+  &:before {
+    vertical-align: -0.175em;
+  }
+}
