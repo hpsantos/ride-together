@@ -55,7 +55,6 @@ export default function NewRoute() {
       return
     }
 
-    // TODO: Clean current routes (not working yet)
     setMapRoutes([])
 
     const directionsService = new window.google.maps.DirectionsService()
