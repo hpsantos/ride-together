@@ -71,7 +71,8 @@ const Header = () => {
                   href="/user/login"
                   active={getActiveClass('/user/login')}
                 >
-                  Login
+                  <i className="bi-door-closed" />
+                  &nbsp; Login
                 </Nav.Link>
               </Link>
             </Nav>
