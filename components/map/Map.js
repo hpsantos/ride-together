@@ -36,7 +36,7 @@ export const MapContent = ({ routes, onMapClick }) => {
       if (routes) {
         routes.map(({ routeData }, index) => {
           lines.current.push(
-            renderLine(map, routeData, () => routeClicked(index))
+            renderLine(map, routeData, () => routeClicked(index), index)
           )
         })
 
