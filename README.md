@@ -1,6 +1,7 @@
 # Ride Together
 
-This is a project developed to the first edition of [geekathon](https://www.geekathon.dev/). We used [Next.js](https://nextjs.org/) bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a project developed for the first edition of the [geekathon](https://www.geekathon.dev/). 
+We used [Next.js](https://nextjs.org/) bootstrapped with [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -12,9 +13,9 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Browse to [http://localhost:3000](http://localhost:3000) to see the app running (hopefully).
 
-Please run this script and configure your editor to keep the code clean:
+To lint the code, use:
 
 ```bash
 npm run lint
